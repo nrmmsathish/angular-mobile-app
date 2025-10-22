@@ -35,6 +35,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
       hour12: false,
     });
   }
+  updateActiveTabFromRoute(url: string) {
+    if (url.includes("/academy")) {
+      this.activeTab = "Academy";
+    } else if (url.includes("/discover")) {
+      this.activeTab = "Discover";
+    } else if (url === "/" || url === "") {
+      this.activeTab = "Academy"; // Default to Academy
+    }
+  }
 
   setActiveTab(tab: string) {
     this.activeTab = tab;
