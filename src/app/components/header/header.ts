@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   currentTime = "12:53";
-  activeTab = "Discover";
+  activeTab = "Academy";
   private timeInterval: any;
 
   constructor(private router: Router) {}

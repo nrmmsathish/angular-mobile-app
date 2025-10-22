@@ -7,7 +7,7 @@ import { EarningsCalendarComponent } from "./app/pages/earnings/earnings.compone
 import { ScreenerComponent } from "./app/pages/screener/screener.component";
 import { CourseComponent } from "./app/pages/course/course.component";
 const routes: Routes = [
-  { path: "", redirectTo: "/discover", pathMatch: "full" },
+  { path: "", redirectTo: "/academy", pathMatch: "full" },
   { path: "discover", component: DiscoverComponent },
   { path: "academy", component: AcademyComponent },
   { path: "home", component: DiscoverComponent },
