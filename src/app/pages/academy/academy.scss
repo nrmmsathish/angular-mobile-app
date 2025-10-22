@@ -1,0 +1,121 @@
+.academy-container {
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.course-section {
+    margin-bottom: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    h2 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #333;
+        margin: 0;
+    }
+
+    .arrow {
+        font-size: 24px;
+        color: #ccc;
+    }
+}
+
+.course-item {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-image {
+    width: 120px;
+    height: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.stock-bg {
+        background: linear-gradient(135deg, #FFD700, #FFA500);
+    }
+
+    &.etf-yellow {
+        background: linear-gradient(135deg, #FFD700, #FFEB3B);
+    }
+
+    &.etf-blue {
+        background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+    }
+
+    &.options-colorful {
+        background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
+    }
+
+    &.options-blue {
+        background: linear-gradient(135deg, #3B82F6, #1E40AF);
+    }
+
+    &.options-yellow {
+        background: linear-gradient(135deg, #FFD700, #FFEB3B);
+    }
+}
+
+.course-badge {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+
+    &.dark {
+        background: rgba(0, 0, 0, 0.8);
+    }
+}
+
+.presenter,
+.chart-icon,
+.minion-icon,
+.options-icon,
+.trading-icon,
+.crash-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.course-info {
+    flex: 1;
+    padding: 15px;
+
+    h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin: 0 0 5px 0;
+    }
+
+    p {
+        font-size: 14px;
+        color: #666;
+        margin: 0 0 8px 0;
+    }
+
+    .play-count {
+        font-size: 12px;
+        color: #999;
+    }
+}

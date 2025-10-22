@@ -1,0 +1,83 @@
+<div class="screener-container">
+  <!-- Header -->
+  <div class="screener-header">
+    <button class="back-btn" (click)="goBack()">‹</button>
+    <h1 class="page-title">Screener</h1>
+    <button class="info-btn">ⓘ</button>
+  </div>
+
+  <!-- Screener Title -->
+  <div class="screener-title-section">
+    <h2 class="screener-title">{{screenerTitle}}</h2>
+    <button class="edit-btn">✎</button>
+  </div>
+
+  <!-- Filter Section -->
+  <div class="filter-section">
+    <div class="filter-header">
+      <span class="filter-label">Screener Filter</span>
+      <button class="modify-btn" (click)="modifyFilter()">Modify</button>
+    </div>
+    
+    <div class="filter-details">
+      <div class="filter-row">
+        <span class="filter-key">Type</span>
+        <span class="filter-value">{{filterType}}</span>
+      </div>
+      <div class="filter-row">
+        <span class="filter-key">Scope</span>
+        <span class="filter-value">{{filterScope}}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Section -->
+  <div class="results-section">
+    <div class="results-header">
+      <span class="results-title">Results</span>
+      <span class="results-count">{{totalStocks}} Stocks</span>
+    </div>
+
+    <!-- Table Header -->
+    <div class="table-header">
+      <div class="header-cell symbol-header">Stock Symbol</div>
+      <div class="header-cell price-header">
+        Last Price 
+        <span class="sort-icon">⇅</span>
+      </div>
+      <div class="header-cell change-header">
+        Chg% 
+        <span class="sort-icon">⇅</span>
+      </div>
+    </div>
+
+    <!-- Stock List -->
+    <div class="stocks-list">
+      <div class="stock-row" *ngFor="let stock of stocks">
+        <div class="stock-info">
+          <div class="stock-symbol">{{stock.symbol}}</div>
+          <div class="stock-details">
+            <span class="market-tag">{{stock.market}}</span>
+            <span class="company-name">{{stock.company}}</span>
+          </div>
+        </div>
+        
+        <div class="price-info">
+          <span class="last-price">{{stock.lastPrice}}</span>
+        </div>
+        
+        <div class="change-info">
+          <span class="change-percent" [class.positive]="stock.isPositive" [class.negative]="!stock.isPositive">
+            {{stock.changePercent}}
+          </span>
+          <button class="comment-btn">💬</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Save Button -->
+  <div class="save-section">
+    <button class="save-btn" (click)="saveScreener()">Save</button>
+  </div>
+</div>

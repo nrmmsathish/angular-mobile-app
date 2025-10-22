@@ -1,0 +1,43 @@
+<header class="header">
+  <div class="status-bar">
+    <span class="time">{{currentTime}}</span>
+    <div class="signal-info">
+      <div class="signal-bars">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <span class="network">5G</span>
+      <div class="battery">
+        <div class="battery-level"></div>
+        <div class="battery-tip"></div>
+      </div>
+    </div>
+  </div>
+  
+  <nav class="nav-tabs">
+    <button class="nav-tab" [class.active]="activeTab === 'Discover'" (click)="setActiveTab('Discover')">
+      Discover
+    </button>
+    <button class="nav-tab" [class.active]="activeTab === 'Academy'" (click)="setActiveTab('Academy')">
+      Academy
+    </button>
+    
+    <button class="nav-tab" [class.active]="activeTab === 'Watchlist'" (click)="setActiveTab('Watchlist')">
+      Watchlist
+    </button>
+    <button class="nav-tab" [class.active]="activeTab === 'Stocks'" (click)="setActiveTab('Stocks')">
+      Stocks
+    </button>
+    <button class="nav-tab" [class.active]="activeTab === 'Options'" (click)="setActiveTab('Options')">
+      Options
+    </button>
+    <div class="ai-badge">
+      <div class="ai-icon">🤖</div>
+      <span>AI</span>
+    </div>
+    <button class="search-btn">🔍</button>
+    <button class="chat-btn">🔄</button>
+  </nav>
+</header>

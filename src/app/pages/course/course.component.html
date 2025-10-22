@@ -1,0 +1,97 @@
+<div class="tiger-community-container">
+  <!-- Header -->
+  <div class="community-header">
+    <button class="back-btn" (click)="goBack()">‹</button>
+    <h1 class="page-title">Community</h1>
+    <div class="header-actions">
+      <button class="facebook-btn">f</button>
+      <button class="more-btn">⋯</button>
+    </div>
+  </div>
+
+  <!-- Post Title -->
+  <div class="post-title-section">
+    <h2 class="post-title">{{postTitle}}</h2>
+  </div>
+
+  <!-- Author Info -->
+  <div class="author-section">
+    <div class="author-info">
+      <div class="author-avatar">
+        <!-- <img src="assets/images/tiger-avatar.png" alt="Academy" class="avatar-img"> -->
+        <div class="verified-badge">✓</div>
+      </div>
+      <div class="author-details">
+        <div class="author-name">{{authorName}}</div>
+        <div class="post-date">{{postDate}}</div>
+      </div>
+    </div>
+    <button class="follow-btn">
+      <span class="bell-icon">🔔</span>
+      {{followingStatus}}
+    </button>
+  </div>
+
+  <!-- Stock Tickers -->
+  <div class="stocks-section">
+    <div class="stock-ticker" *ngFor="let stock of stocks">
+      <div class="stock-info">
+        <span class="market-tag" [class]="stock.market.toLowerCase()">{{stock.market}}</span>
+        <span class="stock-symbol">{{stock.symbol}}</span>
+        <span class="stock-price">{{stock.price}}</span>
+        <span class="stock-change" [class.positive]="stock.isPositive" [class.negative]="!stock.isPositive">
+          {{stock.change}}
+        </span>
+        <span class="change-period" *ngIf="stock.changePercent">{{stock.changePercent}}</span>
+      </div>
+      <div class="stock-actions">
+        <button class="watchlist-btn" (click)="addToWatchlist(stock)">⏱</button>
+        <button class="favorite-btn" (click)="favoriteStock(stock)">♡</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Educational Content -->
+  <div class="content-section">
+    <div class="stock-definition-card">
+      <div class="card-header">
+        <h3 class="stock-title">Stock</h3>
+        <div class="tiger-character">
+          <!-- <img src="assets/images/tiger-character.png" alt="Tiger Character" class="character-img"> -->
+        </div>
+      </div>
+      <p class="stock-subtitle">A stock is a certificate of ownership</p>
+      <div class="tiger-academy-logo">
+        <!-- <img src="assets/images/tiger-academy-logo.png" alt="Tiger Academy" class="logo-img"> -->
+      </div>
+    </div>
+
+    <!-- Definition Text -->
+    <div class="definition-section">
+      <p class="definition-text">
+        <span class="highlight">Stock</span> {{stockDefinition}}
+      </p>
+    </div>
+
+    <!-- Comment Input -->
+    <div class="comment-section">
+      <input type="text" placeholder="I want to say ..." class="comment-input">
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="action-btn comment-btn" (click)="addComment()">
+        <span class="icon">💬</span>
+        <span class="count">{{commentCount}}</span>
+      </button>
+      <button class="action-btn like-btn" (click)="likePost()">
+        <span class="icon">👍</span>
+        <span class="count">{{likeCount}}</span>
+      </button>
+      <button class="action-btn share-btn" (click)="sharePost()">
+        <span class="icon">↗</span>
+        <span class="count">{{shareCount}}</span>
+      </button>
+    </div>
+  </div>
+</div>

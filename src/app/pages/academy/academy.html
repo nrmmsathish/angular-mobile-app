@@ -1,0 +1,69 @@
+<div class="academy-container">
+  <!-- Stock Section -->
+  <section class="course-section">
+    <div class="section-header">
+      <h2>Stock</h2>
+      <span class="arrow">›</span>
+    </div>
+    
+    <div class="course-item" *ngFor="let course of stockCourses" (click)="navigateToTigerCommunity(course.title)" style="cursor: pointer;">
+      <div class="course-image stock-bg">
+        <div class="course-badge">HOW TO INVEST IN US STOCK</div>
+        <div class="presenter-placeholder">👩‍💼</div>
+      </div>
+      <div class="course-info">
+        <h3>{{course.title}}</h3>
+        <p>{{course.subtitle}}</p>
+        <span class="play-count">{{course.plays}}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ETF Section -->
+  <section class="course-section">
+    <div class="section-header">
+      <h2>ETF</h2>
+      <span class="arrow">›</span>
+    </div>
+    
+    <div class="course-item" *ngFor="let course of etfCourses">
+      <div class="course-image" [ngClass]="getImageClass(course.id)">
+        <div class="course-badge" *ngIf="course.id === 2">INVESTING BASICS ETFs</div>
+        <div class="course-badge dark" *ngIf="course.id === 3">Consumer industry investment course</div>
+        <div class="chart-placeholder" *ngIf="course.id === 2">📊</div>
+        <div class="minion-placeholder" *ngIf="course.id === 3">🤖</div>
+      </div>
+      <div class="course-info">
+        <h3>{{course.title}}</h3>
+        <p>{{course.subtitle}}</p>
+        <span class="play-count">{{course.plays}}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Options Section -->
+  <section class="course-section">
+    <div class="section-header">
+      <h2>Options</h2>
+      <span class="arrow">›</span>
+    </div>
+    
+    <div class="course-item" *ngFor="let course of optionsCourses">
+      <div class="course-image" [ngClass]="getOptionsImageClass(course.id)">
+        <div class="course-badge" [ngClass]="getOptionsBadgeClass(course.id)">
+          <span *ngIf="course.id === 4">Combination of options courses</span>
+          <span *ngIf="course.id === 5">OPTIONS TRADING FOR BEGINNERS (7 DAYS)</span>
+          <span *ngIf="course.id === 6">Options crash course</span>
+        </div>
+        <div class="options-placeholder" *ngIf="course.id === 4">🔗</div>
+        <div class="trading-placeholder" *ngIf="course.id === 5">📈</div>
+        <div class="crash-placeholder" *ngIf="course.id === 6">💥</div>
+      </div>
+      <div class="course-info">
+        <h3>{{course.title}}</h3>
+        <p>{{course.subtitle}}</p>
+        <span class="play-count">{{course.plays}}</span>
+      </div>
+    </div>
+  </section>
+</div>

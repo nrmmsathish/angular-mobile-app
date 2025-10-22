@@ -1,0 +1,50 @@
+.footer {
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    min-width: 60px;
+
+    .icon {
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+
+    .label {
+        font-size: 10px;
+        color: #999;
+    }
+
+    &.active {
+        .icon {
+            background: #FFD700;
+            border-radius: 8px;
+            padding: 4px 8px;
+        }
+
+        .label {
+            color: #333;
+            font-weight: 600;
+        }
+    }
+}

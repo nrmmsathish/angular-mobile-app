@@ -1,0 +1,292 @@
+.screener-container {
+    background: #f8f9fa;
+    min-height: 100vh;
+    padding-bottom: 120px;
+}
+
+.screener-header {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e5e5e7;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #007AFF;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.page-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+}
+
+.info-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #8e8e93;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.screener-title-section {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #e5e5e7;
+}
+
+.screener-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+}
+
+.edit-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #8e8e93;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.filter-section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.filter-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+
+.modify-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #007AFF;
+    cursor: pointer;
+    padding: 5px;
+    font-weight: 500;
+}
+
+.filter-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.filter-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.filter-key {
+    font-size: 14px;
+    color: #8e8e93;
+    min-width: 60px;
+    flex-shrink: 0;
+}
+
+.filter-value {
+    font-size: 14px;
+    color: #000;
+    flex: 1;
+}
+
+.results-section {
+    background: white;
+    margin-bottom: 10px;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 15px;
+}
+
+.results-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+
+.results-count {
+    font-size: 14px;
+    color: #8e8e93;
+}
+
+.table-header {
+    display: flex;
+    padding: 10px 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #e5e5e7;
+    border-bottom: 1px solid #e5e5e7;
+}
+
+.header-cell {
+    font-size: 14px;
+    color: #8e8e93;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.symbol-header {
+    flex: 2;
+}
+
+.price-header {
+    flex: 1;
+    justify-content: center;
+}
+
+.change-header {
+    flex: 1;
+    justify-content: center;
+}
+
+.sort-icon {
+    font-size: 12px;
+    color: #c7c7cc;
+}
+
+.stocks-list {
+    padding: 0 20px;
+}
+
+.stock-row {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.stock-row:last-child {
+    border-bottom: none;
+}
+
+.stock-info {
+    flex: 2;
+}
+
+.stock-symbol {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 4px;
+}
+
+.stock-details {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.market-tag {
+    background: #007AFF;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.company-name {
+    font-size: 14px;
+    color: #8e8e93;
+}
+
+.price-info {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.last-price {
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+}
+
+.change-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.change-percent {
+    font-size: 16px;
+    font-weight: 600;
+    min-width: 60px;
+    text-align: center;
+}
+
+.change-percent.positive {
+    color: #34C759;
+}
+
+.change-percent.negative {
+    color: #FF3B30;
+}
+
+.comment-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #8e8e93;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.save-section {
+    position: fixed;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.save-btn {
+    width: 100%;
+    background: #FFD60A;
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background: #FFCD00;
+}

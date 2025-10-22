@@ -1,0 +1,252 @@
+.earnings-container {
+    background: #f5f5f5;
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+.date-section {
+    background: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.date-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.date-text {
+    font-size: 28px;
+    font-weight: 600;
+    color: #000;
+}
+
+.year-text {
+    font-size: 18px;
+    color: #666;
+    margin-left: 5px;
+}
+
+.dropdown-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #666;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.period-selector {
+    display: flex;
+    align-items: center;
+}
+
+.period-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-weight: 500;
+}
+
+.earnings-tabs {
+    background: white;
+    display: flex;
+    padding: 15px 20px;
+    gap: 25px;
+    align-items: center;
+    border-bottom: 10px solid #f5f5f5;
+}
+
+.earnings-tab {
+    background: #f0f0f0;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-weight: 500;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.earnings-tab.active {
+    background: #FFD700;
+    color: #000;
+}
+
+.tab-indicator {
+    font-size: 12px;
+    color: #000;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+}
+
+.filter-icon {
+    font-size: 16px;
+}
+
+.dividends-content {
+    background: white;
+    margin-bottom: 10px;
+}
+
+.dividend-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.purple-bar {
+    width: 4px;
+    height: 20px;
+    background: #8b5cf6;
+    border-radius: 2px;
+}
+
+.dividend-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+}
+
+.arrow-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.section-date {
+    padding: 15px 20px;
+    font-size: 16px;
+    color: #666;
+    font-weight: 500;
+    background: #fafafa;
+}
+
+.dividend-items {
+    padding: 20px;
+}
+
+.dividend-item {
+    margin-bottom: 25px;
+}
+
+.dividend-item:last-child {
+    margin-bottom: 0;
+}
+
+.company-info {
+    display: flex;
+    gap: 15px;
+}
+
+.company-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.company-details {
+    flex: 1;
+}
+
+.company-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.symbol {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+}
+
+.add-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.market-tag {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #666;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.company-name {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.dividend-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dividend-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label {
+    font-size: 14px;
+    color: #999;
+}
+
+.value {
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+}

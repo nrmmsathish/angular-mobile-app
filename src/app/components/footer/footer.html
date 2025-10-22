@@ -1,0 +1,33 @@
+<footer class="footer">
+  <div class="nav-items">
+    <button class="nav-item active" (click)="navigateTo('/discover', 'Home')" [class.active]="activeTab === 'Home'">
+      <div class="icon">🏠</div>
+      <span class="label">Home</span>
+    </button>
+    
+    <button class="nav-item" (click)="navigateTo('/quotes', 'Quotes')" [class.active]="activeTab === 'Quotes'">
+      <div class="icon">📈</div>
+      <span class="label">Quotes</span>
+    </button>
+    
+    <button class="nav-item" (click)="navigateTo('/wealth', 'Wealth')" [class.active]="activeTab === 'Wealth'">
+      <div class="icon">💰</div>
+      <span class="label">Wealth</span>
+    </button>
+    
+    <button class="nav-item" (click)="navigateTo('/discover', 'Community')" [class.active]="activeTab === 'Community'">
+      <div class="icon">👥</div>
+      <span class="label">Community</span>
+    </button>
+    
+    <button class="nav-item" (click)="navigateTo('/portfolio', 'Portfolio')" [class.active]="activeTab === 'Portfolio'">
+      <div class="icon">⏱️</div>
+      <span class="label">Portfolio</span>
+    </button>
+    
+    <button class="nav-item" (click)="navigateTo('/profile', 'Profile')" [class.active]="activeTab === 'Profile'">
+      <div class="icon">👤</div>
+      <span class="label">Profile</span>
+    </button>
+  </div>
+</footer>
