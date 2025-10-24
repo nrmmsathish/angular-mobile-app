@@ -11,7 +11,7 @@
   </div>
 
   <!-- Content for Hot Tab -->
-  <div *ngIf="activeMainTab === 'Hot'">
+  <div *ngIf="activeMainTab === 'Top'">
     <!-- Sub Navigation Tabs -->
     <div class="sub-tabs">
       <button 
@@ -65,86 +65,8 @@
     </div>
   </div>
 
-  <!-- Content for Earnings Calendar Tab -->
-  <div *ngIf="activeMainTab === 'Earnings Calendar'" class="earnings-content">
-    <!-- Date Selector -->
-    <div class="date-section">
-      <div class="date-display">
-        <span class="date-text">{{selectedDate}}</span>
-        <span class="year-text">{{selectedYear}}</span>
-        <button class="dropdown-btn">⌄</button>
-      </div>
-      <div class="period-selector">
-        <button class="period-btn" [class.active]="selectedPeriod === 'Day'" (click)="setPeriod('Day')">
-          Day ▼
-        </button>
-      </div>
-    </div>
-
-    <!-- Earnings Tabs -->
-    <div class="earnings-tabs">
-      <button 
-        *ngFor="let tab of earningsTabs" 
-        class="earnings-tab" 
-        [class.active]="activeEarningsTab === tab"
-        (click)="setEarningsTab(tab)">
-        {{tab}}
-        <span *ngIf="tab === 'Dividend'" class="tab-indicator">✓</span>
-      </button>
-      <button class="filter-btn">
-        <span class="filter-icon">⚙</span>
-        Filter
-      </button>
-    </div>
-
-    <!-- Dividend Sections -->
-    <div class="dividends-content" *ngFor="let dayData of earningsData">
-      <!-- Dividend Header -->
-      <div class="dividend-header">
-        <div class="header-left">
-          <div class="purple-bar"></div>
-          <span class="dividend-title">Dividend</span>
-        </div>
-        <button class="arrow-btn">›</button>
-      </div>
-
-      <!-- Date Display for each section -->
-      <div class="section-date" *ngIf="dayData.displayDate !== '10/22/2025'">
-        {{dayData.displayDate}}
-      </div>
-
-      <!-- Dividend Items -->
-      <div class="dividend-items">
-        <div class="dividend-item" *ngFor="let dividend of dayData.dividends">
-          <div class="company-info">
-            <div class="company-icon" [style.background-color]="dividend.color">
-              {{dividend.letter}}
-            </div>
-            <div class="company-details">
-              <div class="company-header">
-                <span class="symbol">{{dividend.symbol}}</span>
-                <button class="add-btn">⊕</button>
-              </div>
-              <div class="market-tag">{{dividend.market}}</div>
-              <div class="company-name">{{dividend.companyName}}</div>
-              <div class="dividend-info">
-                <div class="dividend-row">
-                  <span class="label">Dividend</span>
-                  <span class="value">{{dividend.dividend}}</span>
-                </div>
-                <div class="dividend-row" *ngIf="dividend.exDate">
-                  <span class="label">Ex Date</span>
-                  <span class="value">{{dividend.exDate}}</span>
-                </div>
-                <div class="dividend-row" *ngIf="dividend.recordDate">
-                  <span class="label">Record Date</span>
-                  <span class="value">{{dividend.recordDate}}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- Content for Calendar Tab -->
+  <div *ngIf="activeMainTab === 'Calendar'" class="earnings-content">
+    <app-earnings></app-earnings>
   </div>
 </div>

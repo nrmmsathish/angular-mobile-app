@@ -11,7 +11,6 @@ import { Router } from "@angular/router";
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   currentTime = "12:53";
-  activeTab = "Academy";
   private timeInterval: any;
 
   constructor(private router: Router) {}
@@ -34,27 +33,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
       minute: "2-digit",
       hour12: false,
     });
-  }
-  updateActiveTabFromRoute(url: string) {
-    if (url.includes("/academy")) {
-      this.activeTab = "Academy";
-    } else if (url.includes("/discover")) {
-      this.activeTab = "Discover";
-    } else if (url === "/" || url === "") {
-      this.activeTab = "Academy"; // Default to Academy
-    }
-  }
-  openAIChat() {
-    this.router.navigate(["/chatbot"]);
-  }
-
-  setActiveTab(tab: string) {
-    this.activeTab = tab;
-    // Navigate to appropriate route based on tab
-    if (tab === "Academy") {
-      this.router.navigate(["/academy"]);
-    } else if (tab === "Discover") {
-      this.router.navigate(["/discover"]);
-    }
   }
 }

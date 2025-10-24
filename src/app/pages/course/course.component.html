@@ -1,97 +1,725 @@
-<div class="tiger-community-container">
+<div class="course-container">
   <!-- Header -->
-  <div class="community-header">
+  <div class="course-header">
     <button class="back-btn" (click)="goBack()">‹</button>
-    <h1 class="page-title">Community</h1>
+    <div class="author-section" *ngIf="selectedDay === 1 && showDetailContent">
+      <div class="author-avatar">
+        🐅
+        <div class="verified-badge">✓</div>
+      </div>
+      <div class="author-info">
+        <div class="author-name">Tiger_Academ...</div>
+        <div class="post-date">2023/03/29 14:51</div>
+      </div>
+    </div>
+    <div class="page-title" *ngIf="!showDetailContent">Tiger Community</div>
+    <div class="page-title" *ngIf="showDetailContent && selectedDay !== 1">Day{{selectedDay}}</div>
     <div class="header-actions">
-      <button class="facebook-btn">f</button>
+      <button class="follow-btn" *ngIf="selectedDay === 1 && showDetailContent">
+        <span class="bell-icon">🔔</span>
+        Following
+      </button>
+      <button class="share-btn">↗</button>
       <button class="more-btn">⋯</button>
     </div>
   </div>
 
-  <!-- Post Title -->
-  <div class="post-title-section">
-    <h2 class="post-title">{{postTitle}}</h2>
-  </div>
-
-  <!-- Author Info -->
-  <div class="author-section">
-    <div class="author-info">
-      <div class="author-avatar">
-        <!-- <img src="assets/images/tiger-avatar.png" alt="Academy" class="avatar-img"> -->
-        <div class="verified-badge">✓</div>
-      </div>
-      <div class="author-details">
-        <div class="author-name">{{authorName}}</div>
-        <div class="post-date">{{postDate}}</div>
-      </div>
+  <!-- Day 1 Detail Content -->
+  <div *ngIf="selectedDay === 1 && showDetailContent" class="day-content">
+    
+    <!-- Post Title -->
+    <div class="post-title-section">
+      <h2 class="post-title">Day1.Financial term|What is a stock?</h2>
     </div>
-    <button class="follow-btn">
-      <span class="bell-icon">🔔</span>
-      {{followingStatus}}
-    </button>
-  </div>
 
-  <!-- Stock Tickers -->
-  <div class="stocks-section">
-    <div class="stock-ticker" *ngFor="let stock of stocks">
-      <div class="stock-info">
-        <span class="market-tag" [class]="stock.market.toLowerCase()">{{stock.market}}</span>
-        <span class="stock-symbol">{{stock.symbol}}</span>
-        <span class="stock-price">{{stock.price}}</span>
-        <span class="stock-change" [class.positive]="stock.isPositive" [class.negative]="!stock.isPositive">
-          {{stock.change}}
-        </span>
-        <span class="change-period" *ngIf="stock.changePercent">{{stock.changePercent}}</span>
-      </div>
-      <div class="stock-actions">
-        <button class="watchlist-btn" (click)="addToWatchlist(stock)">⏱</button>
-        <button class="favorite-btn" (click)="favoriteStock(stock)">♡</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Educational Content -->
-  <div class="content-section">
-    <div class="stock-definition-card">
-      <div class="card-header">
-        <h3 class="stock-title">Stock</h3>
-        <div class="tiger-character">
-          <!-- <img src="assets/images/tiger-character.png" alt="Tiger Character" class="character-img"> -->
+    <!-- Stock Tickers -->
+    <div class="stocks-section">
+      <div class="stock-ticker" *ngFor="let stock of stocks">
+        <div class="stock-info">
+          <span class="market-tag" [class]="stock.market.toLowerCase()">{{stock.market}}</span>
+          <span class="stock-symbol">{{stock.symbol}}</span>
+          <span class="stock-price">{{stock.price}}</span>
+          <span class="stock-change" [class.positive]="stock.isPositive" [class.negative]="!stock.isPositive">
+            {{stock.change}}
+          </span>
+          <span class="change-period">{{stock.period}}</span>
+        </div>
+        <div class="stock-actions">
+          <button class="watchlist-btn">⏱</button>
+          <button class="favorite-btn">💛</button>
         </div>
       </div>
-      <p class="stock-subtitle">A stock is a certificate of ownership</p>
-      <div class="tiger-academy-logo">
-        <!-- <img src="assets/images/tiger-academy-logo.png" alt="Tiger Academy" class="logo-img"> -->
+    </div>
+
+    <!-- Hero Card -->
+    <div class="hero-card">
+      <div class="hero-content">
+        <h2 class="hero-title">Stock</h2>
+        <p class="hero-subtitle">A stock is a certificate<br>of ownership</p>
+        <div class="tiger-logo">
+          🐅 TIGER<br>ACADEMY
+        </div>
+      </div>
+      <div class="hero-character">
+        <div class="tiger-character">🐅</div>
       </div>
     </div>
 
-    <!-- Definition Text -->
-    <div class="definition-section">
-      <p class="definition-text">
-        <span class="highlight">Stock</span> {{stockDefinition}}
-      </p>
-    </div>
+    <!-- Content Sections -->
+    <div class="content-sections">
+      
+      <!-- Stock Definition -->
+      <div class="content-section">
+        <p class="content-text">
+          <span class="highlight">Stock</span> is a certificate of ownership issued by a corporation. To raise capital, the company issues a certificate of ownership to each shareholder. In return, the company pays dividends and bonuses to shareholders.
+        </p>
+      </div>
 
-    <!-- Comment Input -->
-    <div class="comment-section">
-      <input type="text" placeholder="I want to say ..." class="comment-input">
+      <!-- Detailed Explanation -->
+      <div class="content-section">
+        <p class="content-text">
+          Each share represents a basic unit of ownership in a company. As the number of shares increases, there may be additional voting rights to determine the company's performance, often referred to as a "majority shareholder."
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p class="content-text">
+          <strong>The essence of a share, then, is to raise money to do business; you invest in a company, and the company gives you shares as a return.</strong>
+        </p>
+      </div>
+
+      <!-- Example Section -->
+      <div class="content-section">
+        <h3 class="section-title">Here is an example:</h3>
+        <p class="content-text">
+          You hear that the owner of a successful restaurant wants to open a new store, but he needs to raise some funding to open the new restaurant. You hear this and think, "This is your chance." It costs $5 million to open a new store. You're willing
+        </p>
+      </div>
+
+      <!-- Blue Chip Section -->
+      <div class="content-section">
+        <h3 class="section-title">01 Blue Chip stocks</h3>
+        <p class="content-text">
+          <strong>Blue chip stocks</strong> are stocks issued by well-known companies with stable profits. They are characterized by high prices and dividends and generally have a high market value. As a rule, they are the shares of a quality company that occupies a leading position in an industry. Since these companies have a mature and stable business model, they can provide shareholders with substantial profits; therefore, blue chip stocks are very popular in stock investments.
+        </p>
+        <p class="content-text">
+          <strong>Simply put, blue chips tend to have larger market caps and are often at the top of the industry.</strong>
+        </p>
+        <h4 class="subsection-title">Here's an example:</h4>
+        
+        <p class="content-text">
+          Let me give you an example of Microsoft.
+        </p>
+        
+        <p class="content-text">
+          <strong>At the data level:</strong>
+        </p>
+        
+        <p class="content-text">
+          (1) With a total market capitalisation of $1.96 trillion, Microsoft is a member of the "trillion clubs" with high thresholds. (The statistical period is as of February 2023)
+        </p>
+        
+        <p class="content-text">
+          (2) In terms of profit, Microsoft's net income, total revenue and operating profit have steadily increased year after year from 2018 to 2022. In short, profits are very stable.
+        </p>
+      </div>
+
+      <!-- Microsoft Example Section -->
+      <div class="content-section">
+        <div class="stock-example">
+          <div class="stock-header">
+            <div class="stock-info">
+              <span class="market-tag us">US</span>
+              <span class="stock-name">Microsoft (MSFT)</span>
+            </div>
+            <div class="stock-price-info">
+              <div class="stock-price">263.10</div>
+              <div class="stock-change negative">▼ -0.52 -0.20%</div>
+            </div>
+          </div>
+
+          <!-- Financial Tabs -->
+          <div class="financial-tabs">
+            <div class="financial-tab">Overview</div>
+            <div class="financial-tab">Options</div>
+            <div class="financial-tab">Analysis</div>
+            <div class="financial-tab active">Financials</div>
+            <div class="financial-tab">Profile</div>
+          </div>
+
+          <!-- Financial Data Table -->
+          <div class="financial-data">
+            <div class="data-row">
+              <span class="date">06/30/2024</span>
+              <span class="value">10.73</span>
+              <span class="percentage">14.67%</span>
+              <span class="value">24.51</span>
+            </div>
+            <div class="data-row">
+              <span class="date">06/30/2025</span>
+              <span class="value">12.40</span>
+              <span class="percentage">15.51%</span>
+              <span class="value">21.22</span>
+            </div>
+          </div>
+
+          <!-- Income Statement Section -->
+          <div class="income-statement">
+            <div class="section-header">
+              <h4>Income Statement</h4>
+              <span class="share-icon">↗</span>
+            </div>
+
+            <!-- Chart Tabs -->
+            <div class="chart-tabs">
+              <div class="chart-tab active">Net Income</div>
+              <div class="chart-tab">Total Revenue</div>
+              <div class="chart-tab">OP Income</div>
+            </div>
+
+            <!-- Annual Report Dropdown -->
+            <div class="report-selector">
+              <span>Annual Report ▼</span>
+            </div>
+
+            <!-- Financial Chart -->
+            <div class="financial-chart">
+              <div class="chart-container">
+                <div class="chart-bar bar-2018">
+                  <div class="bar-value">16.57B</div>
+                  <div class="bar-segment net-income segment-2018-net"></div>
+                  <div class="bar-segment quarter segment-2018-quarter"></div>
+                </div>
+                <div class="chart-bar bar-2019">
+                  <div class="bar-value">39.24B</div>
+                  <div class="bar-segment net-income segment-2019-net"></div>
+                  <div class="bar-segment quarter segment-2019-quarter"></div>
+                  <div class="growth-point">📍</div>
+                </div>
+                <div class="chart-bar bar-2020">
+                  <div class="bar-value">44.28B</div>
+                  <div class="bar-segment net-income segment-2020-net"></div>
+                  <div class="bar-segment quarter segment-2020-quarter"></div>
+                </div>
+                <div class="chart-bar bar-2021">
+                  <div class="bar-value">61.27B</div>
+                  <div class="bar-segment net-income segment-2021-net"></div>
+                  <div class="bar-segment quarter segment-2021-quarter"></div>
+                </div>
+                <div class="chart-bar bar-2022">
+                  <div class="bar-value">72.74B</div>
+                  <div class="bar-segment net-income segment-2022-net"></div>
+                  <div class="bar-segment quarter segment-2022-quarter"></div>
+                </div>
+              </div>
+
+              <!-- Chart Labels -->
+              <div class="chart-labels">
+                <div class="year-label">2018/FY</div>
+                <div class="year-label">2019/FY</div>
+                <div class="year-label">2020/FY</div>
+                <div class="year-label">2021/FY</div>
+                <div class="year-label">2022/FY</div>
+              </div>
+
+              <!-- Chart Legend -->
+              <div class="chart-legend">
+                <div class="legend-item">
+                  <div class="legend-color net-income"></div>
+                  <span>Net Income(USD)</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-color quarter"></div>
+                  <span>Quarter 1-4</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-color growth"></div>
+                  <span>YOY Growth</span>
+                </div>
+              </div>
+
+              <!-- Data Table -->
+              <div class="data-table">
+                <div class="table-header">
+                  <div class="header-cell">2018/FY</div>
+                  <div class="header-cell">2019/FY</div>
+                  <div class="header-cell">2020/FY</div>
+                  <div class="header-cell">2021/FY</div>
+                  <div class="header-cell">2022/FY</div>
+                </div>
+                <div class="table-row">
+                  <div class="cell blue">16.57B</div>
+                  <div class="cell blue">39.24B</div>
+                  <div class="cell blue">44.28B</div>
+                  <div class="cell blue">61.27B</div>
+                  <div class="cell blue">72.74B</div>
+                </div>
+                <div class="table-row">
+                  <div class="cell red">-34.99%</div>
+                  <div class="cell green">136.80%</div>
+                  <div class="cell green">12.85%</div>
+                  <div class="cell green">38.37%</div>
+                  <div class="cell green">18.72%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Financial Analysis Section -->
+          <div class="financial-analysis">
+            <div class="section-header">
+              <h4>Financial Analysis</h4>
+              <span class="info-icon">ℹ</span>
+              <span class="share-icon">↗</span>
+            </div>
+
+            <!-- Analysis Metrics -->
+            <div class="analysis-metrics">
+              <div class="metric-row">
+                <div class="metric active">EPS</div>
+                <div class="metric">BVPS</div>
+                <div class="metric">Current Ratio</div>
+                <div class="metric">Quick Ratio</div>
+              </div>
+              <div class="metric-row">
+                <div class="metric">ROE</div>
+                <div class="metric">ROA</div>
+                <div class="metric">Gross Margin</div>
+                <div class="metric">NI Margin</div>
+              </div>
+            </div>
+
+            <!-- News Section -->
+            <div class="news-section">
+              <div class="news-tabs">
+                <div class="news-tab">News</div>
+                <div class="news-tab">New Posts</div>
+                <div class="news-tab active">Filings</div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="action-row">
+                <button class="action-button trade active">Trade</button>
+                <button class="action-button">📝 Post</button>
+                <button class="action-button">🔔 Alert</button>
+                <button class="action-button">💝 Watchlist</button>
+                <button class="action-button">⋯ More</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Action Buttons -->
     <div class="action-buttons">
-      <button class="action-btn comment-btn" (click)="addComment()">
+      <button class="action-btn comment-btn">
         <span class="icon">💬</span>
-        <span class="count">{{commentCount}}</span>
+        <span class="count">52</span>
       </button>
-      <button class="action-btn like-btn" (click)="likePost()">
+      <button class="action-btn like-btn">
         <span class="icon">👍</span>
-        <span class="count">{{likeCount}}</span>
+        <span class="count">223</span>
       </button>
-      <button class="action-btn share-btn" (click)="sharePost()">
+      <button class="action-btn share-btn">
         <span class="icon">↗</span>
-        <span class="count">{{shareCount}}</span>
+        <span class="count">21</span>
       </button>
     </div>
+
+    <!-- Comment Input -->
+    <div class="comment-section">
+      <div class="comment-input-container">
+        <input type="text" placeholder="I want to say ..." class="comment-input">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Day 2 Detail Content -->
+  <div *ngIf="selectedDay === 2 && showDetailContent" class="day-content">
+    
+    <!-- Post Title -->
+    <div class="post-title-section">
+      <h2 class="post-title">Day2.Financial term|What is a fund ?</h2>
+    </div>
+
+    <!-- Stock Tickers -->
+    <div class="stocks-section">
+      <div class="stock-ticker">
+        <div class="stock-info">
+          <span class="market-tag us">US</span>
+          <span class="stock-symbol">NDX</span>
+          <span class="stock-price">25,127.13</span>
+          <span class="stock-change negative">-0.06%</span>
+        </div>
+        <div class="stock-actions">
+          <button class="watchlist-btn">⏱</button>
+          <button class="favorite-btn">♡</button>
+        </div>
+      </div>
+      <div class="stock-ticker">
+        <div class="stock-info">
+          <span class="market-tag us">US</span>
+          <span class="stock-symbol">SPY</span>
+          <span class="stock-price">672.72</span>
+          <span class="stock-change positive">+0.21% 24H</span>
+        </div>
+        <div class="stock-actions">
+          <button class="watchlist-btn">⏱</button>
+          <button class="favorite-btn">💛</button>
+        </div>
+      </div>
+      <div class="stock-ticker">
+        <div class="stock-info">
+          <span class="market-tag us">US</span>
+          <span class="stock-symbol">.SPX</span>
+          <span class="stock-price">6,735.35</span>
+          <span class="stock-change neutral">+0.00%</span>
+        </div>
+        <div class="stock-actions">
+          <button class="watchlist-btn">⏱</button>
+          <button class="favorite-btn">💛</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Card -->
+    <div class="hero-card fund-hero">
+      <div class="hero-content">
+        <h2 class="hero-title fund-title">Fund</h2>
+        <p class="hero-subtitle">A fund puts all kinds of<br>assets in a basket</p>
+        <div class="tiger-logo">
+          🐅 TIGER<br>ACADEMY
+        </div>
+      </div>
+      <div class="hero-character">
+        <div class="fund-basket">
+          <div class="basket-container">
+            <div class="basket-items">
+              <div class="asset-item">AMZN</div>
+              <div class="asset-item">TSLA</div>
+              <div class="asset-item">GOOG</div>
+              <div class="asset-item">AAPL</div>
+            </div>
+            <div class="basket-label">Fund</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="content-sections">
+      
+      <!-- Fund Definition -->
+      <div class="content-section">
+        <p class="content-text">
+          <span class="highlight">Fund</span> refers to an investment product in which a fund company collects the money of many investors and makes a variety of investments to achieve returns according to certain rules. The profits or risks obtained by the investment are shared by the investors in proportion to their investment.
+        </p>
+      </div>
+
+      <!-- Detailed Explanation -->
+      <div class="content-section">
+        <p class="content-text">
+          So with a fund, you give your money to a fund manager who helps you divide your investment assets.
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p class="content-text">
+          <strong>What are the specific funds?</strong>
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p class="content-text">
+          <strong>In terms of purchase, funds are divided into public and private funds.</strong>
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p class="content-text">
+          Public funds are funds that anyone can buy.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="action-btn comment-btn">
+        <span class="icon">💬</span>
+        <span class="count">76</span>
+      </button>
+      <button class="action-btn like-btn">
+        <span class="icon">👍</span>
+        <span class="count">96</span>
+      </button>
+      <button class="action-btn share-btn">
+        <span class="icon">↗</span>
+        <span class="count">4</span>
+      </button>
+    </div>
+
+    <!-- Comment Input -->
+    <div class="comment-section">
+      <div class="comment-input-container">
+        <input type="text" placeholder="I want to say ..." class="comment-input">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Day 3 Detail Content -->
+  <div *ngIf="selectedDay === 3 && showDetailContent" class="day-content">
+    
+    <!-- Post Title -->
+    <div class="post-title-section">
+      <h2 class="post-title">Day3.Financial term|What is an ETF ?</h2>
+    </div>
+
+    <!-- Stock Tickers -->
+    <div class="stocks-section">
+      <div class="stock-ticker">
+        <div class="stock-info">
+          <span class="market-tag us">US</span>
+          <span class="stock-symbol">SPY</span>
+          <span class="stock-price">672.72</span>
+          <span class="stock-change positive">+0.21% 24H</span>
+        </div>
+        <div class="stock-actions">
+          <button class="watchlist-btn">⏱</button>
+          <button class="favorite-btn">💛</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Card -->
+    <div class="hero-card etf-hero">
+      <div class="hero-content">
+        <h2 class="hero-title etf-title">Exchange-traded</h2>
+        <p class="hero-subtitle">ETFs are funds that<br>track an index</p>
+        <div class="tiger-logo">
+          🐅 TIGER<br>ACADEMY
+        </div>
+      </div>
+      <div class="hero-character">
+        <div class="etf-illustration">
+          <div class="motion-lines">
+            <div class="line-1"></div>
+            <div class="line-2"></div>
+            <div class="line-3"></div>
+          </div>
+          <div class="clouds">
+            <div class="cloud-1">☁</div>
+            <div class="cloud-2">☁</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="content-sections">
+      
+      <!-- ETF Definition -->
+      <div class="content-section">
+        <p class="content-text">
+          An <span class="highlight orange">ETF</span> is an exchange-traded fund, a type of fund that is listed on an exchange and has a variable portion of the fund.
+        </p>
+      </div>
+
+      <!-- Detailed Explanation -->
+      <div class="content-section">
+        <p class="content-text">
+          Generally, an ETF is an index fund that invests passively by tracking all or part of the securities that make up an index according to the types and proportions of the securities that make up the index. Its trading hours are more flexible than those of other funds, so it can be traded during business hours just like stocks.
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p class="content-text red-highlight">
+          <strong>An ETF is an index fund that tracks an index or an industry.</strong>
+        </p>
+      </div>
+
+      <!-- Example Section -->
+      <div class="content-section">
+        <h3 class="section-title">An example: <span class="blue-link">The S&P 500ETF (SPY)</span></h3>
+        <p class="content-text">
+          The S&P 500 ETF is a fund that tracks the S&P 500 Index of the United States. In other words: When the S&P 500 goes up, it goes up; when the S&P 500 goes down, it goes down with it.
+        </p>
+      </div>
+
+      <!-- Search Feature Section -->
+      <div class="content-section">
+        <p class="content-text">
+          You can search for "ETF" in the Tiger Trade app. There are many related funds.
+        </p>
+        
+        <!-- ETF Search Interface -->
+        <div class="etf-search-interface" style="background: #f2f2f7; border-radius: 10px; overflow: hidden; margin-top: 20px; padding: 16px;">
+          <div class="search-bar" style="display: flex; align-items: center; padding: 10px 15px; background: white; border-radius: 10px; margin-bottom: 16px; gap: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <div class="search-icon" style="color: #8e8e93; font-size: 16px;">🔍</div>
+            <span class="search-text" style="flex: 1; font-size: 16px; color: #000;">ETF</span>
+            <div class="clear-icon" style="background: #8e8e93; color: white; border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; font-size: 12px; cursor: pointer; font-weight: bold;">✕</div>
+            <button class="cancel-btn" style="background: none; border: none; color: #007AFF; font-size: 16px; cursor: pointer; margin-left: 10px;">Cancel</button>
+          </div>
+          
+          <!-- Search Categories -->
+          <div class="search-categories" style="display: flex; background: white; border-radius: 10px; margin-bottom: 16px; overflow: hidden;">
+            <div class="category active" style="flex: 1; text-align: center; padding: 12px; font-size: 16px; color: #000; font-weight: 600; background: white; border-bottom: 2px solid #000;">Prime</div>
+            <div class="category" style="flex: 1; text-align: center; padding: 12px; font-size: 16px; color: #8e8e93; cursor: pointer; background: white;">Stock</div>
+            <div class="category" style="flex: 1; text-align: center; padding: 12px; font-size: 16px; color: #8e8e93; cursor: pointer; background: white;">User</div>
+            <div class="category" style="flex: 1; text-align: center; padding: 12px; font-size: 16px; color: #8e8e93; cursor: pointer; background: white;">Post</div>
+            <div class="category" style="flex: 1; text-align: center; padding: 12px; font-size: 16px; color: #8e8e93; cursor: pointer; background: white;">News</div>
+          </div>
+          
+          <!-- ETF Results -->
+          <div class="etf-results" style="background: white; border-radius: 10px; overflow: hidden;">
+            <div class="etf-item" style="display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 0.5px solid #c6c6c8; cursor: pointer;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+              <div class="etf-info" style="flex: 1;">
+                <div class="etf-name" style="font-size: 17px; color: #000; font-weight: 400; margin-bottom: 2px; line-height: 1.3;">Eastfield Resources Ltd.</div>
+                <div class="etf-code" style="font-size: 15px; color: #007AFF;">US ETFLF</div>
+              </div>
+              <div class="watchlist-icon" style="font-size: 22px; color: #d1d1d6; cursor: pointer;">♡</div>
+            </div>
+            
+            <div class="etf-item" style="display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 0.5px solid #c6c6c8; cursor: pointer;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+              <div class="etf-info" style="flex: 1;">
+                <div class="etf-name" style="font-size: 17px; color: #000; font-weight: 400; margin-bottom: 2px; line-height: 1.3;">SPDR MSCI Europe Technology UCITS ETF</div>
+                <div class="etf-code" style="font-size: 15px; color: #007AFF;">US SETFF</div>
+              </div>
+              <div class="watchlist-icon" style="font-size: 22px; color: #d1d1d6; cursor: pointer;">♡</div>
+            </div>
+            
+            <div class="etf-item" style="display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 0.5px solid #c6c6c8; cursor: pointer;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+              <div class="etf-info" style="flex: 1;">
+                <div class="etf-name" style="font-size: 17px; color: #000; font-weight: 400; margin-bottom: 2px; line-height: 1.3;">ETF & Stock Investment</div>
+                <div class="etf-code" style="font-size: 15px; color: #007AFF;">US BK4585</div>
+              </div>
+              <div class="watchlist-icon" style="font-size: 22px; color: #d1d1d6; cursor: pointer;">♡</div>
+            </div>
+            
+            <div class="etf-item" style="display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 0.5px solid #c6c6c8; cursor: pointer;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+              <div class="etf-info" style="flex: 1;">
+                <div class="etf-name" style="font-size: 17px; color: #000; font-weight: 400; margin-bottom: 2px; line-height: 1.3;">ALPHA METAVERSE TECHNOLOGIES INC.</div>
+                <div class="etf-code" style="font-size: 15px; color: #007AFF;">US APETF</div>
+              </div>
+              <div class="watchlist-icon" style="font-size: 22px; color: #d1d1d6; cursor: pointer;">♡</div>
+            </div>
+            
+            <div class="etf-item" style="display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 0.5px solid #c6c6c8; cursor: pointer;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+              <div class="etf-info" style="flex: 1;">
+                <div class="etf-name" style="font-size: 17px; color: #000; font-weight: 400; margin-bottom: 2px; line-height: 1.3;">BIKE24 HOLDING AG</div>
+                <div class="etf-code" style="font-size: 15px; color: #007AFF;">US BKETF</div>
+              </div>
+              <div class="watchlist-icon" style="font-size: 22px; color: #d1d1d6; cursor: pointer;">♡</div>
+            </div>
+            
+            <div class="etf-item" style="display: flex; justify-content: space-between; align-items: center; padding: 16px; cursor: pointer;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+              <div class="etf-info" style="flex: 1;">
+                <div class="etf-name" style="font-size: 17px; color: #000; font-weight: 400; margin-bottom: 2px; line-height: 1.3;">CHINA EAST ED HOLDINGS LTD</div>
+                <div class="etf-code" style="font-size: 15px; color: #007AFF;">US</div>
+              </div>
+              <div class="watchlist-icon" style="font-size: 22px; color: #d1d1d6; cursor: pointer;">♡</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="action-btn comment-btn">
+        <span class="icon">💬</span>
+        <span class="count">59</span>
+      </button>
+      <button class="action-btn like-btn">
+        <span class="icon">👍</span>
+        <span class="count">75</span>
+      </button>
+      <button class="action-btn share-btn">
+        <span class="icon">↗</span>
+        <span class="count">8</span>
+      </button>
+    </div>
+
+    <!-- Comment Input -->
+    <div class="comment-section">
+      <div class="comment-input-container">
+        <input type="text" placeholder="I want to say ..." class="comment-input">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Default Course Overview (when not in detail mode) -->
+  <div *ngIf="!showDetailContent">
+    
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="hero-content">
+        <h2 class="hero-title">Stock</h2>
+        <p class="hero-subtitle">US Stock Basic<br>How to invest in US stocks</p>
+        <div class="tiger-logo">
+          🐅 TIGER<br>ACADEMY
+        </div>
+      </div>
+      <div class="hero-character">
+        <div class="tiger-character">🐅</div>
+      </div>
+    </div>
+
+    <!-- Financial Term Section -->
+    <div class="financial-term-section">
+      <h3 class="section-title">US Stock Basic Course</h3>
+      <div class="author-link">Tiger_Academy</div>
+      <div class="course-description">Learn the fundamentals of investing in US stocks through our comprehensive financial education program.</div>
+    </div>
+
+    <!-- Contents Section -->
+    <div class="contents-section">
+      <div class="contents-header">
+        <h3 class="contents-title">Contents</h3>
+        <div class="all-link">All {{courseDays.length}} ›</div>
+      </div>
+
+      <div class="course-tabs">
+        <div class="course-tab" 
+             *ngFor="let day of courseDays" 
+             [class.active]="selectedDay === day.day" 
+             (click)="selectDay(day.day)">
+          <div class="tab-icon">📄</div>
+          <div class="tab-content">
+            <div class="tab-title">{{day.title}}</div>
+            <div class="check-icon" *ngIf="day.completed">✓</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course Introduction -->
+    <div class="introduction-section">
+      <h3 class="intro-title">Course Introduction</h3>
+      <p class="intro-text">
+        "Welcome to US Stock Basic - your comprehensive guide to understanding and investing in US stocks. This course covers fundamental concepts including what stocks are, how the stock market works, and essential investment strategies.
+      </p>
+      <p class="intro-text">
+        Through daily lessons, you'll learn about different types of stocks like Blue Chip stocks, market terminology, and practical investment approaches. Each lesson includes clear explanations and real-world examples to help you build confidence in stock investing.
+      </p>
+      <p class="intro-text">
+        Start your journey to becoming a knowledgeable stock investor - let's begin learning together!"
+      </p>
+    </div>
+
+    <!-- Comment Section -->
+    <div class="comment-section">
+      <div class="comment-input-container">
+        <input type="text" placeholder="Say Something" class="comment-input">
+        <button class="share-comment-btn">↗</button>
+      </div>
+    </div>
+
   </div>
 </div>

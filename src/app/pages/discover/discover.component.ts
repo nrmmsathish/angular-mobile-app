@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Router } from "@angular/router";
+import { EarningsCalendarComponent } from "../earnings/earnings.component";
 interface Stock {
   name: string;
   percentage: string;
@@ -34,12 +35,12 @@ interface EarningsDay {
 @Component({
   selector: "app-discover",
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, EarningsCalendarComponent],
   templateUrl: "./discover.component.html",
   styleUrls: ["./discover.component.scss"],
 })
 export class DiscoverComponent {
-  activeMainTab = "Hot";
+  activeMainTab = "Top";
   activeSubTab = "Screener";
   activeFilterTab = "Followed List";
   activeEarningsTab = "Dividend";
@@ -48,39 +49,39 @@ export class DiscoverComponent {
   selectedYear = "2025";
   selectedPeriod = "Day";
 
-  mainTabs = ["Hot", "Earnings Calendar", "Trade Feed", "Opportunity"];
+  mainTabs = ["Top", "Calendar"];
   subTabs = ["Movers & Shakers", "Top Buys & Sells", "Screener"];
   filterTabs = ["Most Active", "Similar Candlesticks", "Followed List"];
   earningsTabs = ["Earnings", "Dividend", "Economy"];
 
   tradingGroups: TradingGroup[] = [
     {
-      title: "trump",
-      subtitle: "Type:Stock | Markets:US | Theme:Trump Concept",
+      title: "Indian Concept",
+      subtitle: "Type:Stock | Markets:IN | Theme:Indian Market Focus",
       stocks: [
         { name: "General Motors", percentage: "+14.86%", isPositive: true },
         { name: "Steel Dynamics", percentage: "+5.15%", isPositive: true },
       ],
     },
     {
-      title: "US Contra Trading",
-      subtitle: "Type:Stock | Markets:US | Contra Trading",
+      title: "Bitcoin ETF",
+      subtitle: "Type:ETF | Markets:US | Theme:Cryptocurrency",
       stocks: [
         { name: "General Motors", percentage: "+14.86%", isPositive: true },
         { name: "Vicor", percentage: "+13.37%", isPositive: true },
       ],
     },
     {
-      title: "HK Contra Trading",
-      subtitle: "Type:Stock | Markets:HK | Contra Trading",
+      title: "Warren Buffett Holdings",
+      subtitle: "Type:Stock | Markets:US | Theme:Berkshire Hathaway Portfolio",
       stocks: [
         { name: "IMOTIONTECH", percentage: "+10.99%", isPositive: true },
         { name: "OSHIDORI", percentage: "+10.42%", isPositive: true },
       ],
     },
     {
-      title: "SI Contra Trading",
-      subtitle: "Type:Stock | Markets:SG | Contra Trading",
+      title: "Nancy Pelosi Portfolio",
+      subtitle: "Type:Stock | Markets:US | Theme:Political Portfolio Tracking",
       stocks: [
         { name: "YZJ Shipbldg CNY", percentage: "+55.73%", isPositive: true },
         {
@@ -167,8 +168,14 @@ export class DiscoverComponent {
     this.selectedPeriod = period;
   }
   navigateToScreener(groupTitle: string) {
-    if (groupTitle === "trump") {
-      this.router.navigate(["/screener"]);
+    if (groupTitle === "Indian Concept") {
+      this.router.navigate(["/indian-concept"]);
+    } else if (groupTitle === "Bitcoin ETF") {
+      this.router.navigate(["/bitcoin-etf"]);
+    } else if (groupTitle === "Warren Buffett Holdings") {
+      this.router.navigate(["/warren-buffett"]);
+    } else if (groupTitle === "Nancy Pelosi Portfolio") {
+      this.router.navigate(["/nancy-pelosi"]);
     }
   }
 }

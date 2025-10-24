@@ -2,17 +2,36 @@
     background: white;
     border-top: 1px solid #e0e0e0;
     padding: 10px 0;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); /* Safe area for mobile */
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+    
+    /* Ensure footer doesn't get too tall on very small screens */
+    @media screen and (max-height: 600px) {
+        padding: 8px 0;
+        padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+    }
+    
+    @media screen and (max-height: 500px) {
+        padding: 6px 0;
+        padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+    }
 }
 
 .nav-items {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 8px;
+    box-sizing: border-box;
 }
 
 .nav-item {
@@ -24,15 +43,47 @@
     cursor: pointer;
     padding: 5px;
     min-width: 60px;
+    flex: 1;
+    max-width: 80px;
 
     .icon {
         font-size: 20px;
         margin-bottom: 2px;
+        
+        /* Adjust icon size for smaller screens */
+        @media screen and (max-height: 600px) {
+            font-size: 18px;
+            margin-bottom: 1px;
+        }
+        
+        @media screen and (max-height: 500px) {
+            font-size: 16px;
+            margin-bottom: 1px;
+        }
     }
 
     .label {
         font-size: 10px;
         color: #999;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        
+        /* Adjust label size for smaller screens */
+        @media screen and (max-height: 600px) {
+            font-size: 9px;
+        }
+        
+        @media screen and (max-height: 500px) {
+            font-size: 8px;
+        }
+        
+        /* Handle very small screen widths */
+        @media screen and (max-width: 320px) {
+            font-size: 9px;
+        }
     }
 
     &.active {
@@ -40,6 +91,17 @@
             background: #FFD700;
             border-radius: 8px;
             padding: 4px 8px;
+            
+            /* Adjust active icon padding for smaller screens */
+            @media screen and (max-height: 600px) {
+                padding: 3px 6px;
+                border-radius: 6px;
+            }
+            
+            @media screen and (max-height: 500px) {
+                padding: 2px 4px;
+                border-radius: 4px;
+            }
         }
 
         .label {

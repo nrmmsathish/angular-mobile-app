@@ -1,5 +1,5 @@
 .earnings-container {
-    background: #f5f5f5;
+    background: #f8f9fa;
     min-height: 100vh;
     padding-bottom: 100px;
 }
@@ -20,8 +20,8 @@
 }
 
 .date-text {
-    font-size: 28px;
-    font-weight: 600;
+    font-size: 48px;
+    font-weight: 300;
     color: #000;
 }
 
@@ -46,13 +46,19 @@
 }
 
 .period-btn {
-    background: none;
+    background: #f8f9fa;
     border: none;
-    font-size: 16px;
-    color: #000;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #333;
     cursor: pointer;
-    padding: 8px 12px;
     font-weight: 500;
+    
+    &.active {
+        background: #007bff;
+        color: white;
+    }
 }
 
 .earnings-tabs {
@@ -111,6 +117,11 @@
     margin-bottom: 10px;
 }
 
+.dividend-section {
+    background: white;
+    margin-top: 1px;
+}
+
 .dividend-header {
     display: flex;
     justify-content: space-between;
@@ -156,20 +167,22 @@
 }
 
 .dividend-items {
-    padding: 20px;
+    padding: 0;
 }
 
 .dividend-item {
-    margin-bottom: 25px;
-}
-
-.dividend-item:last-child {
-    margin-bottom: 0;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 16px 20px;
+    
+    &:last-child {
+        border-bottom: none;
+    }
 }
 
 .company-info {
     display: flex;
-    gap: 15px;
+    gap: 16px;
+    align-items: flex-start;
 }
 
 .company-icon {
@@ -196,10 +209,21 @@
     margin-bottom: 8px;
 }
 
+.symbol-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .symbol {
     font-size: 18px;
     font-weight: 600;
     color: #000;
+}
+
+.watchlist-star {
+    color: #FFD700;
+    font-size: 16px;
 }
 
 .add-btn {
@@ -211,21 +235,26 @@
     padding: 4px;
 }
 
+.market-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
 .market-tag {
     display: inline-block;
-    background: #f0f0f0;
-    color: #666;
+    background: #e3f2fd;
+    color: #1976d2;
     font-size: 12px;
     padding: 2px 6px;
     border-radius: 4px;
-    margin-bottom: 6px;
     font-weight: 500;
 }
 
 .company-name {
     font-size: 14px;
     color: #666;
-    margin-bottom: 12px;
 }
 
 .dividend-info {
@@ -249,4 +278,241 @@
     font-size: 14px;
     color: #000;
     font-weight: 500;
+}
+
+// Earnings Section Styles
+.earnings-section {
+    background: white;
+    margin-top: 1px;
+}
+
+.earnings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.orange-bar {
+    width: 4px;
+    height: 20px;
+    background: #ff9800;
+    border-radius: 2px;
+}
+
+.earnings-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+}
+
+.earnings-items {
+    padding: 0;
+}
+
+.earnings-item {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 16px 20px;
+    
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.company-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    flex-shrink: 0;
+}
+
+.logo-placeholder {
+    font-size: 16px;
+    font-weight: 600;
+    color: #666;
+}
+
+.date-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.date {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.market-timing {
+    font-size: 12px;
+    color: #999;
+}
+
+.earnings-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.earnings-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// Economy Section Styles
+.economy-section {
+    background: #f8f9fa;
+}
+
+.economy-group {
+    margin-bottom: 1px;
+    background: white;
+}
+
+.economy-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #f5f5f5;
+    background: white;
+}
+
+.blue-bar {
+    width: 4px;
+    height: 20px;
+    background: #2196f3;
+    border-radius: 2px;
+}
+
+.economy-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+}
+
+.economy-date {
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+    background: #f8f9fa;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.economy-items {
+    background: white;
+}
+
+.economy-item {
+    border-bottom: 1px solid #f0f0f0;
+    
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.economy-content {
+    padding: 16px 20px;
+}
+
+.economy-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.economy-indicator {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    flex: 1;
+}
+
+.economy-values {
+    margin-bottom: 12px;
+}
+
+.value-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.value-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    
+    .label {
+        font-size: 12px;
+        color: #999;
+        margin-bottom: 4px;
+    }
+    
+    .value {
+        font-size: 14px;
+        color: #000;
+        font-weight: 500;
+    }
+}
+
+.economy-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .time {
+        font-size: 12px;
+        color: #999;
+        flex: 1;
+    }
+    
+    .importance-stars {
+        display: flex;
+        gap: 2px;
+        margin: 0 8px;
+        
+        .star {
+            font-size: 12px;
+            
+            &:not(.filled) {
+                opacity: 0.3;
+                filter: grayscale(1);
+            }
+            
+            &.filled {
+                opacity: 1;
+            }
+        }
+    }
+    
+    .country-flag {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        background: #ffebee;
+        padding: 2px 8px;
+        border-radius: 12px;
+        
+        .country-icon {
+            font-size: 12px;
+        }
+        
+        .country-code {
+            font-size: 12px;
+            color: #666;
+            font-weight: 500;
+        }
+    }
 }

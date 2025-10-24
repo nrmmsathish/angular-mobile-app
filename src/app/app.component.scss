@@ -1,12 +1,23 @@
 .app-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
     background-color: #f8f9fa;
+    position: relative;
 }
 
 .main-content {
     flex: 1;
     overflow-y: auto;
-    padding-bottom: 80px;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); /* Safe area for mobile devices */
+    
+    /* Ensure content doesn't get cut off on very small screens */
+    @media screen and (max-height: 600px) {
+        padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px));
+    }
+    
+    @media screen and (max-height: 500px) {
+        padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+    }
 }

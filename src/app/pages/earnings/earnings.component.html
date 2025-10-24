@@ -8,7 +8,7 @@
     </div>
     <div class="period-selector">
       <button class="period-btn" [class.active]="selectedPeriod === 'Day'" (click)="setPeriod('Day')">
-        Day ▼
+        {{selectedPeriod}} ▼
       </button>
     </div>
   </div>
@@ -21,7 +21,7 @@
       [class.active]="activeEarningsTab === tab"
       (click)="setEarningsTab(tab)">
       {{tab}}
-      <span *ngIf="tab === 'Dividend'" class="tab-indicator">✓</span>
+      <span *ngIf="activeEarningsTab === tab" class="tab-indicator">✓</span>
     </button>
     <button class="filter-btn">
       <span class="filter-icon">⚙</span>
@@ -29,8 +29,8 @@
     </button>
   </div>
 
-  <!-- Dividend Sections -->
-  <div class="dividends-content" *ngFor="let dayData of earningsData">
+  <!-- Dividend Section -->
+  <div class="dividend-section" *ngIf="activeEarningsTab === 'Dividend'">
     <!-- Dividend Header -->
     <div class="dividend-header">
       <div class="header-left">
@@ -40,25 +40,25 @@
       <button class="arrow-btn">›</button>
     </div>
 
-    <!-- Date Display for each section -->
-    <div class="section-date" *ngIf="dayData.displayDate !== '10/22/2025'">
-      {{dayData.displayDate}}
-    </div>
-
     <!-- Dividend Items -->
     <div class="dividend-items">
-      <div class="dividend-item" *ngFor="let dividend of dayData.dividends">
+      <div class="dividend-item" *ngFor="let dividend of earningsData">
         <div class="company-info">
           <div class="company-icon" [style.background-color]="dividend.color">
             {{dividend.letter}}
           </div>
           <div class="company-details">
             <div class="company-header">
-              <span class="symbol">{{dividend.symbol}}</span>
+              <div class="symbol-section">
+                <span class="symbol">{{dividend.symbol}}</span>
+                <span class="watchlist-star" *ngIf="dividend.symbol === 'S68.SI'">⭐</span>
+              </div>
               <button class="add-btn">⊕</button>
             </div>
-            <div class="market-tag">{{dividend.market}}</div>
-            <div class="company-name">{{dividend.companyName}}</div>
+            <div class="market-info">
+              <span class="market-tag">{{dividend.market}}</span>
+              <span class="company-name">{{dividend.companyName}}</span>
+            </div>
             <div class="dividend-info">
               <div class="dividend-row">
                 <span class="label">Dividend</span>
@@ -72,9 +72,141 @@
                 <span class="label">Record Date</span>
                 <span class="value">{{dividend.recordDate}}</span>
               </div>
+              <div class="dividend-row" *ngIf="dividend.paymentDate">
+                <span class="label">Payment Date</span>
+                <span class="value">{{dividend.paymentDate}}</span>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Earnings Section -->
+  <div class="earnings-section" *ngIf="activeEarningsTab === 'Earnings'">
+    <!-- Earnings Header -->
+    <div class="earnings-header">
+      <div class="header-left">
+        <div class="orange-bar"></div>
+        <span class="earnings-title">Earnings</span>
+      </div>
+      <button class="arrow-btn">›</button>
+    </div>
+
+    <!-- Earnings Items -->
+    <div class="earnings-items">
+      <div class="earnings-item" *ngFor="let earning of earningsData2">
+        <div class="company-info">
+          <div class="company-logo">
+            <div class="logo-placeholder">{{earning.symbol.charAt(0)}}</div>
+          </div>
+          <div class="company-details">
+            <div class="company-header">
+              <div class="symbol-section">
+                <span class="symbol">{{earning.symbol}}</span>
+                <span class="watchlist-star" *ngIf="earning.hasWatchlist">⭐</span>
+              </div>
+              <div class="date-section">
+                <span class="date">{{earning.date}}</span>
+                <span class="market-timing" *ngIf="earning.marketTiming">({{earning.marketTiming}})</span>
+                <button class="add-btn">⊕</button>
+              </div>
+            </div>
+            <div class="market-info">
+              <span class="market-tag">{{earning.market}}</span>
+              <span class="company-name">{{earning.companyName}}</span>
+            </div>
+            <div class="earnings-info">
+              <div class="earnings-row">
+                <span class="label">EPS/Forecast</span>
+                <span class="value">
+                  <span *ngIf="earning.epsActual; else noEpsActual">{{earning.epsActual}}</span>
+                  <ng-template #noEpsActual>–</ng-template>
+                  /
+                  <span *ngIf="earning.epsForecast; else noEpsForecast">{{earning.epsForecast}}</span>
+                  <ng-template #noEpsForecast>–</ng-template>
+                </span>
+              </div>
+              <div class="earnings-row">
+                <span class="label">Revenue/Forecast</span>
+                <span class="value">
+                  <span *ngIf="earning.revenueActual; else noRevenueActual">{{earning.revenueActual}}</span>
+                  <ng-template #noRevenueActual>–</ng-template>
+                  /
+                  <span *ngIf="earning.revenueForecast; else noRevenueForecast">{{earning.revenueForecast}}</span>
+                  <ng-template #noRevenueForecast>–</ng-template>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Economy Section -->
+  <div class="economy-section" *ngIf="activeEarningsTab === 'Economy'">
+    <!-- Economy Headers with Dates -->
+    <div class="economy-group" *ngFor="let dateGroup of getEconomyByDate()">
+      <!-- Economy Header -->
+      <div class="economy-header">
+        <div class="header-left">
+          <div class="blue-bar"></div>
+          <span class="economy-title">Economy</span>
+        </div>
+        <button class="arrow-btn">›</button>
+      </div>
+
+      <!-- Economy Items -->
+      <div class="economy-items">
+        <div class="economy-item" *ngFor="let item of dateGroup.items">
+          <div class="economy-content">
+            <div class="economy-header-row">
+              <span class="economy-indicator">{{item.title}}</span>
+              <button class="add-btn">⊕</button>
+            </div>
+            
+            <div class="economy-values">
+              <div class="value-row">
+                <div class="value-group">
+                  <span class="label">Act</span>
+                  <span class="value">{{item.actual}}</span>
+                </div>
+                <div class="value-group">
+                  <span class="label">Cons</span>
+                  <span class="value">{{item.consensus}}</span>
+                </div>
+                <div class="value-group">
+                  <span class="label">Prev</span>
+                  <span class="value">{{item.previous}}</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="economy-meta">
+              <span class="time">{{item.date}} {{item.time}}</span>
+              <div class="importance-stars">
+                <span *ngFor="let i of [1,2,3]" 
+                      [class.filled]="i <= item.importance" 
+                      class="star">⭐</span>
+              </div>
+              <div class="country-flag">
+                <span class="country-icon">🇸🇬</span>
+                <span class="country-code">{{item.country}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Date Display for next section -->
+      <div class="economy-date" *ngIf="dateGroup.date === '10/24/2025'">
+        {{dateGroup.date}}
+      </div>
+      
+      <div class="economy-date" *ngIf="dateGroup.date === '11/05/2025'">
+        {{dateGroup.date}}
       </div>
     </div>
   </div>

@@ -7,6 +7,7 @@ import { EarningsCalendarComponent } from "./app/pages/earnings/earnings.compone
 import { ScreenerComponent } from "./app/pages/screener/screener.component";
 import { CourseComponent } from "./app/pages/course/course.component";
 import { ChatbotComponent } from "./app/pages/chatbot/chatbot.component";
+import { StockDetailComponent } from "./app/pages/stock-detail/stock-detail.component";
 const routes: Routes = [
   { path: "", redirectTo: "/academy", pathMatch: "full" },
   { path: "discover", component: DiscoverComponent },
@@ -20,6 +21,10 @@ const routes: Routes = [
   { path: "portfolio", component: DiscoverComponent },
   { path: "profile", component: DiscoverComponent },
   { path: "chatbot", component: ChatbotComponent },
+  { path: "indian-concept", component: StockDetailComponent },
+  { path: "bitcoin-etf", component: StockDetailComponent },
+  { path: "warren-buffett", component: StockDetailComponent },
+  { path: "nancy-pelosi", component: StockDetailComponent },
 ];
 
 bootstrapApplication(AppComponent, {

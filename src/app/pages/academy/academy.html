@@ -1,4 +1,95 @@
 <div class="academy-container">
+  <!-- Library Section -->
+  <section class="course-section">
+    <div class="section-header">
+      <h2>Library</h2>
+      <span class="arrow">›</span>
+    </div>
+    
+    <div class="library-card">
+      <div class="library-image">
+        <div class="library-content">
+          <div class="library-logo">🐅 TIGER ACADEMY</div>
+          <div class="library-title">Financial Term</div>
+          <div class="library-subtitle">Taking investing tips one day at a time!</div>
+          <div class="library-character">🧑‍💼</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hot Courses Section -->
+  <section class="course-section">
+    <div class="section-header">
+      <h2>Hot Courses</h2>
+      <span class="arrow">›</span>
+    </div>
+    
+    <div class="course-item">
+      <div class="course-image hot-course-bg">
+        <div class="course-content">
+          <div class="course-badge">Behavioral Finance<br>Courses</div>
+          <div class="chart-icon">📊</div>
+        </div>
+      </div>
+      <div class="course-info">
+        <h3>Behavioral finance courses</h3>
+        <p>The hidden trading secrets of behavioral...</p>
+        <span class="play-count">Play 51.1k</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP guidance Section -->
+  <section class="course-section">
+    <div class="section-header">
+      <h2>APP guidance</h2>
+      <span class="arrow">›</span>
+    </div>
+    
+    <div class="course-item">
+      <div class="course-image app-guidance-blue">
+        <div class="course-content">
+          <div class="course-badge">24 Hour trading<br>of US stocks</div>
+          <div class="clock-icon">⏰</div>
+        </div>
+      </div>
+      <div class="course-info">
+        <h3>24-hour trading of US stocks</h3>
+        <p>More trading time, More opportunities</p>
+        <span class="play-count">Play 7.5k</span>
+      </div>
+    </div>
+
+    <div class="course-item">
+      <div class="course-image app-guidance-light">
+        <div class="course-content">
+          <div class="course-badge">How to Contra trade using<br>Cash Boost Account?</div>
+          <div class="phone-icon">📱</div>
+        </div>
+      </div>
+      <div class="course-info">
+        <h3>How to contra trade using CBA?</h3>
+        <p>How to contra trade using CBA?</p>
+        <span class="play-count">Play 14.6k</span>
+      </div>
+    </div>
+
+    <div class="course-item">
+      <div class="course-image app-guidance-light">
+        <div class="course-content">
+          <div class="course-badge">How to open<br>Cash Boost Account?</div>
+          <div class="phone-icon">📱</div>
+        </div>
+      </div>
+      <div class="course-info">
+        <h3>How to open Cash Boost Account?</h3>
+        <p>How to open Cash Boost Account?</p>
+        <span class="play-count">Play 10.2k</span>
+      </div>
+    </div>
+  </section>
+
   <!-- Stock Section -->
   <section class="course-section">
     <div class="section-header">
@@ -6,15 +97,19 @@
       <span class="arrow">›</span>
     </div>
     
-    <div class="course-item" *ngFor="let course of stockCourses" (click)="navigateToTigerCommunity(course.title)" style="cursor: pointer;">
+    <div class="course-item clickable" (click)="navigateToTigerCommunity('US Stock Basic')">
       <div class="course-image stock-bg">
-        <div class="course-badge">HOW TO INVEST IN US STOCK</div>
-        <div class="presenter-placeholder">👩‍💼</div>
+        <div class="course-content">
+          <div class="course-badge">HOW TO INVEST IN US STOCK</div>
+          <div class="presenter-image">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNGRkY4REMiLz4KPGNpcmNsZSBjeD0iMjAiIGN5PSIxNSIgcj0iNiIgZmlsbD0iI0ZGQzEwNyIvPgo8cGF0aCBkPSJNMTAgMzBDMTAgMjUuNTgxNyAxMy41ODE3IDIyIDE4IDIySDIyQzI2LjQxODMgMjIgMzAgMjUuNTgxNyAzMCAzMFYzNUgxMFYzMFoiIGZpbGw9IiNGRkMxMDciLz4KPC9zdmc+" alt="Presenter">
+          </div>
+        </div>
       </div>
       <div class="course-info">
-        <h3>{{course.title}}</h3>
-        <p>{{course.subtitle}}</p>
-        <span class="play-count">{{course.plays}}</span>
+        <h3>US Stock Basic</h3>
+        <p>How to invest in US stocks</p>
+        <span class="play-count">Play 126.9k</span>
       </div>
     </div>
   </section>
@@ -26,17 +121,31 @@
       <span class="arrow">›</span>
     </div>
     
-    <div class="course-item" *ngFor="let course of etfCourses">
-      <div class="course-image" [ngClass]="getImageClass(course.id)">
-        <div class="course-badge" *ngIf="course.id === 2">INVESTING BASICS ETFs</div>
-        <div class="course-badge dark" *ngIf="course.id === 3">Consumer industry investment course</div>
-        <div class="chart-placeholder" *ngIf="course.id === 2">📊</div>
-        <div class="minion-placeholder" *ngIf="course.id === 3">🤖</div>
+    <div class="course-item">
+      <div class="course-image etf-yellow">
+        <div class="course-content">
+          <div class="course-badge">INVESTING BASICS<br>ETFs</div>
+          <div class="chart-icon">📊</div>
+        </div>
       </div>
       <div class="course-info">
-        <h3>{{course.title}}</h3>
-        <p>{{course.subtitle}}</p>
-        <span class="play-count">{{course.plays}}</span>
+        <h3>ETFs for beginners .</h3>
+        <p>Practical skills of ETF</p>
+        <span class="play-count">Play 194.7k</span>
+      </div>
+    </div>
+
+    <div class="course-item">
+      <div class="course-image etf-blue">
+        <div class="course-content">
+          <div class="course-badge">Consumer industry investment course</div>
+          <div class="minion-icon">🤖</div>
+        </div>
+      </div>
+      <div class="course-info">
+        <h3>Consumer industry investment c...</h3>
+        <p>Learn in 3-days</p>
+        <span class="play-count">Play 21.7k</span>
       </div>
     </div>
   </section>
@@ -48,21 +157,89 @@
       <span class="arrow">›</span>
     </div>
     
-    <div class="course-item" *ngFor="let course of optionsCourses">
-      <div class="course-image" [ngClass]="getOptionsImageClass(course.id)">
-        <div class="course-badge" [ngClass]="getOptionsBadgeClass(course.id)">
-          <span *ngIf="course.id === 4">Combination of options courses</span>
-          <span *ngIf="course.id === 5">OPTIONS TRADING FOR BEGINNERS (7 DAYS)</span>
-          <span *ngIf="course.id === 6">Options crash course</span>
+    <div class="course-item">
+      <div class="course-image options-colorful">
+        <div class="course-content">
+          <div class="course-badge">Combination of<br>options courses</div>
+          <div class="options-icon">🔗</div>
         </div>
-        <div class="options-placeholder" *ngIf="course.id === 4">🔗</div>
-        <div class="trading-placeholder" *ngIf="course.id === 5">📈</div>
-        <div class="crash-placeholder" *ngIf="course.id === 6">💥</div>
       </div>
       <div class="course-info">
-        <h3>{{course.title}}</h3>
-        <p>{{course.subtitle}}</p>
-        <span class="play-count">{{course.plays}}</span>
+        <h3>Combination of options courses</h3>
+        <p>Systematic Learning of Combination Opti...</p>
+        <span class="play-count">Play 105.1k</span>
+      </div>
+    </div>
+
+    <div class="course-item">
+      <div class="course-image options-blue">
+        <div class="course-content">
+          <div class="course-badge">OPTIONS TRADING FOR<br>BEGINNERS (7 DAYS)</div>
+          <div class="trading-icon">📈</div>
+        </div>
+      </div>
+      <div class="course-info">
+        <h3>Options trading</h3>
+        <p>Options step 1</p>
+        <span class="play-count">Play 235.4k</span>
+      </div>
+    </div>
+
+    <div class="course-item">
+      <div class="course-image options-yellow">
+        <div class="course-content">
+          <div class="course-badge">Options<br>crash course</div>
+          <div class="crash-icon">📊</div>
+        </div>
+      </div>
+      <div class="course-info">
+        <h3>Options crash course</h3>
+        <p>Options basics | Greek letters | Five strat...</p>
+        <span class="play-count">Play 62.5k</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical analysis Section -->
+  <section class="course-section">
+    <div class="section-header">
+      <h2>Technical analysis</h2>
+      <span class="arrow">›</span>
+    </div>
+    
+    <div class="course-item">
+      <div class="course-image technical-analysis-bg">
+        <div class="course-content">
+          <div class="course-badge">Technical hunter</div>
+          <div class="chart-bars-icon">📊</div>
+        </div>
+      </div>
+      <div class="course-info">
+        <h3>Technical hunter</h3>
+        <p>Classic chart patterns for stock picking</p>
+        <span class="play-count">Play 155.2k</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FCN Section -->
+  <section class="course-section">
+    <div class="section-header">
+      <h2>FCN</h2>
+      <span class="arrow">›</span>
+    </div>
+    
+    <div class="course-item">
+      <div class="course-image fcn-bg">
+        <div class="course-content">
+          <div class="course-badge">FCN Investment<br>Course</div>
+          <div class="fcn-icon">💼</div>
+        </div>
+      </div>
+      <div class="course-info">
+        <h3>FCN Investment course</h3>
+        <p>3 lessons from entry level to advanced le...</p>
+        <span class="play-count">Play 45.7k</span>
       </div>
     </div>
   </section>

@@ -18,4 +18,9 @@ export class FooterComponent {
     this.activeTab = tabName;
     this.router.navigate([route]);
   }
+
+  openAIChat() {
+    this.activeTab = "AI";
+    this.router.navigate(["/chatbot"]);
+  }
 }
