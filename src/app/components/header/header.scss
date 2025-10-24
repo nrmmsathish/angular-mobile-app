@@ -143,3 +143,22 @@
     padding: 8px;
     margin-left: 8px;
 }
+.ai-badge {
+    background: #FFD60A;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ai-badge:hover {
+    background: #FFCD00;
+}
+
+.ai-badge:active {
+    transform: scale(0.95);
+}

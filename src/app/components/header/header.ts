@@ -44,6 +44,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.activeTab = "Academy"; // Default to Academy
     }
   }
+  openAIChat() {
+    this.router.navigate(["/chatbot"]);
+  }
 
   setActiveTab(tab: string) {
     this.activeTab = tab;

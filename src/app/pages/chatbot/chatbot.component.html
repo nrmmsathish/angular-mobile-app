@@ -1,0 +1,72 @@
+<div class="chatbot-container">
+  <!-- Header -->
+  <div class="chat-header">
+    <button class="back-btn" (click)="goBack()">←</button>
+    <div class="chat-info">
+      <div class="chat-participants">
+        <div class="participant-avatars">
+          <div class="avatar vivek">👤</div>
+          <div class="avatar manoj">👤</div>
+          <div class="avatar ai">🤖</div>
+        </div>
+        <div class="chat-details">
+          <h3 class="chat-title">{{chatTitle}}</h3>
+          <p class="chat-date">{{chatDate}}</p>
+        </div>
+      </div>
+    </div>
+    <button class="more-btn">⋯</button>
+  </div>
+
+  <!-- Chat Messages -->
+  <div class="chat-messages" #chatContainer>
+    <div class="message-group" *ngFor="let message of messages">
+      <div class="message" [class.user-message]="message.type === 'user'" [class.ai-message]="message.type === 'ai'">
+        <div class="message-avatar">
+          <div class="avatar" [class]="message.type">{{message.avatar}}</div>
+        </div>
+        <div class="message-content">
+          <div class="message-header">
+            <span class="sender-name">{{message.userName}}</span>
+            <span class="message-time">{{formatTime(message.timestamp)}}</span>
+          </div>
+          <div class="message-text" [innerHTML]="formatMessageContent(message.content)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typing Indicator -->
+    <div class="message ai-message" *ngIf="isTyping">
+      <div class="message-avatar">
+        <div class="avatar ai">🤖</div>
+      </div>
+      <div class="message-content">
+        <div class="message-header">
+          <span class="sender-name">AI</span>
+        </div>
+        <div class="typing-indicator">
+          <div class="typing-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message Input -->
+  <div class="message-input-container">
+    <div class="input-wrapper">
+      <input 
+        type="text" 
+        [(ngModel)]="newMessage" 
+        (keyup.enter)="sendMessage()"
+        placeholder="Ask AI about stocks, market analysis..." 
+        class="message-input">
+      <button class="send-btn" (click)="sendMessage()" [disabled]="!newMessage.trim()">
+        <span class="send-icon">📤</span>
+      </button>
+    </div>
+  </div>
+</div>
