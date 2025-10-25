@@ -1,50 +1,52 @@
 .screener-container {
-    background: #f8f9fa;
+    background: var(--background-secondary);
     min-height: 100vh;
     padding-bottom: 120px;
 }
 
 .screener-header {
-    background: white;
+    background: var(--background-primary);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 20px;
-    border-bottom: 1px solid #e5e5e7;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .back-btn {
     background: none;
     border: none;
-    font-size: 24px;
-    color: #007AFF;
+    font-size: var(--font-size-2xl);
+    color: var(--accent-color);
     cursor: pointer;
-    padding: 5px;
+    padding: var(--spacing-xs);
+    transition: var(--transition-normal);
 }
 
 .page-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #000;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
     margin: 0;
 }
 
 .info-btn {
     background: none;
     border: none;
-    font-size: 18px;
-    color: #8e8e93;
+    font-size: var(--font-size-lg);
+    color: var(--text-tertiary);
     cursor: pointer;
-    padding: 5px;
+    padding: var(--spacing-xs);
+    transition: var(--transition-normal);
 }
 
 .screener-title-section {
-    background: white;
+    background: var(--background-primary);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
-    border-bottom: 1px solid #e5e5e7;
+    padding: var(--spacing-xl);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .screener-title {

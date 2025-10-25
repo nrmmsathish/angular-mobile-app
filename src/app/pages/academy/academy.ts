@@ -97,7 +97,7 @@ export class AcademyComponent {
   getOptionsBadgeClass(id: number): string {
     return id === 3 ? "dark" : "";
   }
-  navigateToTigerCommunity(courseTitle: string) {
+  navigateToCourse(courseTitle: string) {
     if (courseTitle === "US Stock Basic") {
       this.router.navigate(["/course"]);
     }

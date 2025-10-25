@@ -25,11 +25,12 @@ interface Stock {
   styleUrls: ["./course.component.scss"],
 })
 export class CourseComponent {
-  selectedDay = 1;
+  selectedDay = 0; // No day selected initially
   showDetailContent = false; // Start with overview mode
+  lastSelectedDay = 0; // Track the last selected day
   
   courseDays: CourseDay[] = [
-    { day: 1, title: "Day1.What is a stock ?", completed: true },
+    { day: 1, title: "Day1.What is a stock ?", completed: false },
     { day: 2, title: "Day2.What is a fund ?", completed: false },
     { day: 3, title: "Day3.What is an ETF ?", completed: false },
     { day: 4, title: "Day4.What is an Reits ?", completed: false },
@@ -79,7 +80,17 @@ export class CourseComponent {
   }
 
   selectDay(day: number) {
+    // Update current selection
     this.selectedDay = day;
+    
+    // Mark the currently selected day as completed when it's visited
+    const currentDay = this.courseDays.find(d => d.day === day);
+    if (currentDay) {
+      currentDay.completed = true;
+    }
+    
+    this.lastSelectedDay = day;
+    
     if (day === 1 || day === 2 || day === 3) {
       this.showDetailContent = true;
     } else {

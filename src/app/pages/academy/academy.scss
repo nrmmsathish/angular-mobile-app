@@ -1,47 +1,53 @@
 .academy-container {
-    padding: 16px;
-    background: #f8f9fa;
+    padding: var(--spacing-lg);
+    background: var(--background-secondary);
     min-height: 100vh;
-    padding-bottom: 100px; // Extra padding for footer
+    padding-bottom: var(--spacing-6xl);
 }
 
 .course-section {
-    margin-bottom: 24px;
+    margin-bottom: var(--spacing-2xl);
 }
 
 .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: var(--spacing-lg);
 
     h2 {
-        font-size: 20px;
-        font-weight: 600;
-        color: #000;
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-semibold);
+        color: var(--text-primary);
         margin: 0;
     }
 
     .arrow {
-        font-size: 20px;
-        color: #ccc;
-        font-weight: 300;
+        font-size: var(--font-size-xl);
+        color: var(--text-tertiary);
+        font-weight: var(--font-weight-light);
     }
 }
 
-// Library Card Special Styling
 .library-card {
-    background: white;
-    border-radius: 12px;
+    background: var(--background-primary);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin-bottom: 12px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--separator-color);
+    transition: var(--transition-normal);
+    
+    &:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(calc(-1 * var(--spacing-xs)));
+    }
 }
 
 .library-image {
     width: 100%;
     height: 120px;
-    background: linear-gradient(135deg, #FFE082 0%, #FFF9C4 100%);
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--warning-color) 100%);
     position: relative;
     display: flex;
     align-items: center;
@@ -56,54 +62,55 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 16px;
+    padding: var(--spacing-lg);
     text-align: center;
 }
 
 .library-logo {
-    font-size: 10px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
 }
 
 .library-title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 4px;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
 }
 
 .library-subtitle {
-    font-size: 12px;
-    color: #666;
-    margin-bottom: 8px;
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
 }
 
 .library-character {
-    font-size: 20px;
+    font-size: var(--font-size-xl);
     position: absolute;
-    bottom: 8px;
-    right: 16px;
+    bottom: var(--spacing-xs);
+    right: var(--spacing-lg);
 }
 
 .course-item {
     display: flex;
-    background: white;
-    border-radius: 12px;
-    margin-bottom: 12px;
+    background: var(--background-primary);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-sm);
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
     cursor: pointer;
+    border: 1px solid var(--separator-color);
 
     &.clickable {
         cursor: pointer;
     }
 
     &:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        transform: translateY(calc(-1 * var(--spacing-xs)));
+        box-shadow: var(--shadow-md);
     }
 }
 
@@ -169,16 +176,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 8px;
+    padding: var(--spacing-xs);
 }
 
 .course-badge {
     background: rgba(0, 0, 0, 0.75);
-    color: white;
-    padding: 4px 6px;
-    border-radius: 4px;
-    font-size: 8px;
-    font-weight: 600;
+    color: var(--background-primary);
+    padding: var(--spacing-xs) var(--spacing-xs);
+    border-radius: var(--radius-xs);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
     text-align: center;
     line-height: 1.2;
     max-width: 100px;
@@ -210,35 +217,35 @@
 .phone-icon,
 .chart-bars-icon,
 .fcn-icon {
-    font-size: 24px;
-    margin-top: 4px;
+    font-size: var(--font-size-2xl);
+    margin-top: var(--spacing-xs);
 }
 
 .course-info {
     flex: 1;
-    padding: 16px;
+    padding: var(--spacing-lg);
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     h3 {
-        font-size: 16px;
-        font-weight: 600;
-        color: #000;
-        margin: 0 0 4px 0;
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-weight-semibold);
+        color: var(--text-primary);
+        margin: 0 0 var(--spacing-xs) 0;
         line-height: 1.3;
     }
 
     p {
-        font-size: 14px;
-        color: #666;
-        margin: 0 0 8px 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-secondary);
+        margin: 0 0 var(--spacing-xs) 0;
         line-height: 1.4;
     }
 
     .play-count {
-        font-size: 12px;
-        color: #999;
-        font-weight: 400;
+        font-size: var(--font-size-xs);
+        color: var(--text-tertiary);
+        font-weight: var(--font-weight-regular);
     }
 }

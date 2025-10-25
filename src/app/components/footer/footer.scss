@@ -1,8 +1,8 @@
 .footer {
-    background: white;
-    border-top: 1px solid #e0e0e0;
-    padding: 10px 0;
-    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); /* Safe area for mobile */
+    background: var(--background-primary);
+    border-top: 1px solid var(--separator-color);
+    padding: var(--spacing-sm) 0;
+    padding-bottom: calc(var(--spacing-sm) + env(safe-area-inset-bottom, 0px));
     position: fixed;
     bottom: 0;
     left: 0;
@@ -10,16 +10,12 @@
     z-index: 1000;
     width: 100%;
     box-sizing: border-box;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     
-    /* Ensure footer doesn't get too tall on very small screens */
     @media screen and (max-height: 600px) {
-        padding: 8px 0;
-        padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
-    }
-    
-    @media screen and (max-height: 500px) {
-        padding: 6px 0;
-        padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+        padding: var(--spacing-xs) 0;
+        padding-bottom: calc(var(--spacing-xs) + env(safe-area-inset-bottom, 0px));
     }
 }
 
@@ -30,7 +26,7 @@
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 8px;
+    padding: 0 var(--spacing-sm);
     box-sizing: border-box;
 }
 
@@ -41,61 +37,55 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: var(--spacing-xs);
     min-width: 60px;
     flex: 1;
     max-width: 80px;
+    transition: var(--transition-fast);
+    border-radius: var(--radius-md);
 
     .icon {
-        font-size: 20px;
-        margin-bottom: 2px;
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-xs);
+        transition: var(--transition-fast);
         
-        /* Adjust icon size for smaller screens */
         @media screen and (max-height: 600px) {
-            font-size: 18px;
-            margin-bottom: 1px;
-        }
-        
-        @media screen and (max-height: 500px) {
-            font-size: 16px;
-            margin-bottom: 1px;
+            font-size: var(--font-size-lg);
         }
     }
 
     .label {
-        font-size: 10px;
-        color: #999;
+        font-size: var(--font-size-xs);
+        color: var(--text-secondary);
         text-align: center;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 100%;
+        font-weight: var(--font-weight-medium);
         
-        /* Adjust label size for smaller screens */
         @media screen and (max-height: 600px) {
             font-size: 9px;
         }
         
-        @media screen and (max-height: 500px) {
-            font-size: 8px;
-        }
-        
-        /* Handle very small screen widths */
         @media screen and (max-width: 320px) {
             font-size: 9px;
         }
     }
 
+    &:hover {
+        background: var(--background-secondary);
+    }
+
     &.active {
         .icon {
-            background: #FFD700;
-            border-radius: 8px;
-            padding: 4px 8px;
+            background: var(--accent-color);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xs) var(--spacing-sm);
             
-            /* Adjust active icon padding for smaller screens */
             @media screen and (max-height: 600px) {
-                padding: 3px 6px;
-                border-radius: 6px;
+                padding: var(--spacing-xs) var(--spacing-xs);
+                border-radius: var(--radius-sm);
             }
             
             @media screen and (max-height: 500px) {

@@ -1,0 +1,121 @@
+<div class="onboarding-container">
+  <!-- Header -->
+  <div class="header">
+    <button class="back-button" (click)="goBack()">
+      <span class="back-icon">‹</span>
+    </button>
+    <h1 class="page-title">Investor profile</h1>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="hero-section">
+    <div class="hero-image"></div>
+  </div>
+
+  <!-- Get Ready Section -->
+  <div class="get-ready-section">
+    <div class="progress-indicator">
+      <span class="progress-text">{{completedSteps}}/{{totalSteps}}</span>
+    </div>
+    <div class="status-badge">Not started</div>
+    
+    <h2 class="section-title">Get ready to invest!</h2>
+    <p class="section-description">
+      Complete your investor profile to open up a world of exciting wealth opportunities.
+    </p>
+  </div>
+
+  <!-- Personalise Section -->
+  <div class="personalise-section">
+    <h3 class="personalise-title">Personalise your Wealth journey</h3>
+    <p class="personalise-description">
+      Get started on your investor profile and save time in getting tailored 
+      advice during your next investing with us.
+    </p>
+
+    <!-- Profile Items -->
+    <div class="profile-items">
+      <!-- Net Worth -->
+      <div class="profile-item" (click)="navigateToSection('net-worth')">
+        <div class="item-icon">🏠</div>
+        <div class="item-content">
+          <h4 class="item-title">Net worth</h4>
+          <p class="item-subtitle">Tell us where you stand financially</p>
+        </div>
+        <div class="arrow-icon">›</div>
+      </div>
+
+      <!-- Pending Item -->
+      <div class="profile-item pending">
+        <div class="item-icon pending-icon">⚠</div>
+        <div class="item-content">
+          <span class="pending-text">Pending</span>
+        </div>
+      </div>
+
+      <!-- Risk Profile -->
+      <div class="profile-item" (click)="navigateToSection('risk-profile')">
+        <div class="item-icon">📊</div>
+        <div class="item-content">
+          <h4 class="item-title">Risk Profile Questionnaire</h4>
+          <p class="item-subtitle">Assess your willingness to take on investment risks</p>
+        </div>
+        <div class="arrow-icon">›</div>
+      </div>
+
+      <!-- Pending Item -->
+      <div class="profile-item pending">
+        <div class="item-icon pending-icon">⚠</div>
+        <div class="item-content">
+          <span class="pending-text">Pending</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Future Planner -->
+    <div class="future-planner">
+      <div class="planner-icon">❤️</div>
+      <div class="planner-content">
+        <h4 class="planner-title">Future Planner</h4>
+        <p class="planner-subtitle">Start planning for your future</p>
+        <button class="start-button" (click)="startFuturePlanner()">Start now</button>
+      </div>
+    </div>
+
+    <!-- Customer Knowledge Assessment -->
+    <div class="profile-item" (click)="navigateToSection('knowledge-assessment')">
+      <div class="item-icon">📚</div>
+      <div class="item-content">
+        <h4 class="item-title">Customer Knowledge Assessment</h4>
+        <p class="item-subtitle">Assess your current knowledge relating to the products/risks and features.</p>
+      </div>
+      <div class="arrow-icon">›</div>
+    </div>
+
+    <!-- Pending Item for Knowledge Assessment -->
+    <div class="profile-item pending">
+      <div class="item-icon pending-icon">⚠</div>
+      <div class="item-content">
+        <span class="pending-text">Pending</span>
+      </div>
+    </div>
+
+    <!-- Customer Account Review -->
+    <div class="profile-item" (click)="navigateToSection('account-review')">
+      <div class="item-icon">📋</div>
+      <div class="item-content">
+        <h4 class="item-title">Customer Account Review</h4>
+        <p class="item-subtitle">Review your current circumstances for the purposes/risks and features.</p>
+      </div>
+      <div class="arrow-icon">›</div>
+    </div>
+
+    <!-- Pending Item for Account Review -->
+    <div class="profile-item pending">
+      <div class="item-icon pending-icon">⚠</div>
+      <div class="item-content">
+        <span class="pending-text">Pending</span>
+      </div>
+    </div>
+  </div>
+</div>

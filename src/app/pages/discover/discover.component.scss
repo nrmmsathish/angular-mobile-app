@@ -1,33 +1,33 @@
 .discover-container {
-    background: #f5f5f5;
+    background: var(--background-secondary);
     min-height: 100vh;
     padding-bottom: 100px;
 }
 
 // Main navigation tabs (Discover, Watchlist, Stocks, Options)
 .main-tabs {
-    background: white;
+    background: var(--background-primary);
     display: flex;
-    padding: 0 20px;
-    gap: 35px;
+    padding: 0 var(--spacing-xl);
+    gap: var(--spacing-2xl);
     border-bottom: none;
 }
 
 .main-tab {
     background: none;
     border: none;
-    font-size: 16px;
-    color: #d1d1d1;
+    font-size: var(--font-size-lg);
+    color: var(--text-disabled);
     cursor: pointer;
-    padding: 12px 0;
+    padding: var(--spacing-sm) 0;
     position: relative;
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     white-space: nowrap;
 }
 
 .main-tab.active {
-    color: #000;
-    font-weight: 600;
+    color: var(--text-primary);
+    font-weight: var(--font-weight-semibold);
 }
 
 .main-tab.active::after {
@@ -37,92 +37,93 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: #000;
+    background: var(--text-primary);
 }
 
 // Sub navigation tabs (Hot, Earnings Calendar, etc)
 .sub-tabs {
-    background: white;
+    background: var(--background-primary);
     display: flex;
-    padding: 12px 20px;
-    gap: 35px;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    gap: var(--spacing-2xl);
     border-bottom: none;
 }
 
 .sub-tab {
     background: none;
     border: none;
-    font-size: 15px;
-    color: #d1d1d1;
+    font-size: var(--font-size-base);
+    color: var(--text-disabled);
     cursor: pointer;
-    padding: 5px 0;
-    font-weight: 400;
+    padding: var(--spacing-xs) 0;
+    font-weight: var(--font-weight-regular);
     white-space: nowrap;
     position: relative;
 }
 
 .sub-tab.active {
-    color: #000;
-    font-weight: 600;
+    color: var(--text-primary);
+    font-weight: var(--font-weight-semibold);
 }
 
 .sub-tab.active::after {
     content: '';
     position: absolute;
-    bottom: -12px;
+    bottom: calc(-1 * var(--spacing-sm));
     left: 0;
     right: 0;
     height: 2px;
-    background: #000;
+    background: var(--text-primary);
 }
 
 // Filter tabs (Most Active, Similar Candlesticks, etc)
 .filter-tabs {
-    background: white;
+    background: var(--background-primary);
     display: flex;
-    padding: 12px 20px 20px;
-    gap: 12px;
-    border-bottom: 10px solid #f5f5f5;
+    padding: var(--spacing-sm) var(--spacing-xl) var(--spacing-xl);
+    gap: var(--spacing-sm);
+    border-bottom: var(--spacing-lg) solid var(--background-secondary);
 }
 
 .filter-tab {
-    background: #f0f0f0;
+    background: var(--background-secondary);
     border: none;
-    border-radius: 20px;
-    font-size: 13px;
-    color: #888;
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
     cursor: pointer;
-    padding: 8px 16px;
-    font-weight: 400;
+    padding: var(--spacing-xs) var(--spacing-lg);
+    font-weight: var(--font-weight-regular);
     white-space: nowrap;
+    transition: var(--transition-normal);
 }
 
 .filter-tab.active {
-    background: #333;
-    color: white;
+    background: var(--text-primary);
+    color: var(--background-primary);
 }
 
 // Hot Strategy section
 .hot-strategy {
-    background: white;
-    padding: 15px 20px;
-    border-bottom: 1px solid #f0f0f0;
+    background: var(--background-primary);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-bottom: 1px solid var(--separator-color);
 }
 
 .strategy-header {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--spacing-xs);
 }
 
 .fire-icon {
-    font-size: 16px;
+    font-size: var(--font-size-lg);
 }
 
 .strategy-text {
-    font-size: 16px;
-    font-weight: 400;
-    color: #888;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-regular);
+    color: var(--text-secondary);
 }
 
 // Trading groups
