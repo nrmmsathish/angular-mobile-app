@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { Router } from "@angular/router";
+import { NavigationService } from "../../services/navigation.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-header",
@@ -11,18 +12,30 @@ import { Router } from "@angular/router";
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   currentTime = "12:53";
+  currentPageName = "Academy";
   private timeInterval: any;
+  private navigationSubscription!: Subscription;
 
-  constructor(private router: Router) {}
+  constructor(private navigationService: NavigationService) {}
 
   ngOnInit() {
     this.updateTime();
     this.timeInterval = setInterval(() => this.updateTime(), 60000);
+    
+    // Subscribe to page name changes
+    this.navigationSubscription = this.navigationService.currentPage$.subscribe(
+      (pageName) => {
+        this.currentPageName = pageName;
+      }
+    );
   }
 
   ngOnDestroy() {
     if (this.timeInterval) {
       clearInterval(this.timeInterval);
+    }
+    if (this.navigationSubscription) {
+      this.navigationSubscription.unsubscribe();
     }
   }
 

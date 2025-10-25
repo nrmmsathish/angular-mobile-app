@@ -102,43 +102,11 @@
             <div class="logo-placeholder">{{earning.symbol.charAt(0)}}</div>
           </div>
           <div class="company-details">
-            <div class="company-header">
-              <div class="symbol-section">
-                <span class="symbol">{{earning.symbol}}</span>
-                <span class="watchlist-star" *ngIf="earning.hasWatchlist">⭐</span>
-              </div>
-              <div class="date-section">
-                <span class="date">{{earning.date}}</span>
-                <span class="market-timing" *ngIf="earning.marketTiming">({{earning.marketTiming}})</span>
-                <button class="add-btn">⊕</button>
-              </div>
+            <div class="symbol-line">
+              <span class="symbol">{{earning.symbol}}</span>
+              <span class="date">{{earning.date}}</span>
             </div>
-            <div class="market-info">
-              <span class="market-tag">{{earning.market}}</span>
-              <span class="company-name">{{earning.companyName}}</span>
-            </div>
-            <div class="earnings-info">
-              <div class="earnings-row">
-                <span class="label">EPS/Forecast</span>
-                <span class="value">
-                  <span *ngIf="earning.epsActual; else noEpsActual">{{earning.epsActual}}</span>
-                  <ng-template #noEpsActual>–</ng-template>
-                  /
-                  <span *ngIf="earning.epsForecast; else noEpsForecast">{{earning.epsForecast}}</span>
-                  <ng-template #noEpsForecast>–</ng-template>
-                </span>
-              </div>
-              <div class="earnings-row">
-                <span class="label">Revenue/Forecast</span>
-                <span class="value">
-                  <span *ngIf="earning.revenueActual; else noRevenueActual">{{earning.revenueActual}}</span>
-                  <ng-template #noRevenueActual>–</ng-template>
-                  /
-                  <span *ngIf="earning.revenueForecast; else noRevenueForecast">{{earning.revenueForecast}}</span>
-                  <ng-template #noRevenueForecast>–</ng-template>
-                </span>
-              </div>
-            </div>
+            <div class="company-name">{{earning.companyName}}</div>
           </div>
         </div>
       </div>

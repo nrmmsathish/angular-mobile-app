@@ -60,7 +60,7 @@ export class EarningsCalendarComponent {
   selectedDate = "10 / 22";
   selectedYear = "2025";
   selectedPeriod = "Day";
-  activeEarningsTab = "Economy";
+  activeEarningsTab = "Dividend";
   activeFilterTab = "Economy";
 
   earningsData: DividendItem[] = [

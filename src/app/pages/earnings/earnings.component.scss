@@ -6,7 +6,7 @@
 
 .date-section {
     background: var(--background-primary);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg) var(--spacing-xl);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,30 +15,37 @@
 
 .date-display {
     display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
+    align-items: baseline;
+    gap: var(--spacing-sm);
 }
 
 .date-text {
-    font-size: 48px;
-    font-weight: var(--font-weight-light);
+    font-size: 28px;
+    font-weight: var(--font-weight-medium);
     color: var(--text-primary);
+    letter-spacing: -0.5px;
 }
 
 .year-text {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     color: var(--text-secondary);
-    margin-left: var(--spacing-xs);
+    font-weight: var(--font-weight-normal);
 }
 
 .dropdown-btn {
     background: none;
     border: none;
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
     color: var(--text-secondary);
     cursor: pointer;
     padding: var(--spacing-xs);
     transition: var(--transition-normal);
+    opacity: 0.7;
+    
+    &:hover {
+        opacity: 1;
+        color: var(--text-primary);
+    }
 }
 
 .period-selector {
@@ -55,7 +62,7 @@
     color: #333;
     cursor: pointer;
     font-weight: 500;
-    
+
     &.active {
         background: #007bff;
         color: white;
@@ -174,7 +181,7 @@
 .dividend-item {
     border-bottom: 1px solid #f0f0f0;
     padding: 16px 20px;
-    
+
     &:last-child {
         border-bottom: none;
     }
@@ -298,7 +305,7 @@
 .orange-bar {
     width: 4px;
     height: 20px;
-    background: #ff9800;
+    background: #ff6b35;
     border-radius: 2px;
 }
 
@@ -315,27 +322,114 @@
 .earnings-item {
     border-bottom: 1px solid #f0f0f0;
     padding: 16px 20px;
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
     &:last-child {
         border-bottom: none;
     }
 }
 
+.company-info {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    flex: 1;
+}
+
 .company-logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f5f5f5;
     flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
 }
 
 .logo-placeholder {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
+    color: white;
+}
+
+.company-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.symbol-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+    
+    .symbol {
+        font-size: 16px;
+        font-weight: 600;
+        color: #000;
+    }
+    
+    .date {
+        font-size: 14px;
+        color: #666;
+    }
+}
+
+.company-name {
+    font-size: 14px;
     color: #666;
+}
+
+.earnings-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.earnings-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.earnings-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.date-time-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.date {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.market-timing {
+    font-size: 12px;
+    color: #999;
+}
+
+.add-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #ccc;
+    cursor: pointer;
+    padding: 2px;
+    margin-top: 4px;
 }
 
 .date-section {
@@ -414,7 +508,7 @@
 
 .economy-item {
     border-bottom: 1px solid #f0f0f0;
-    
+
     &:last-child {
         border-bottom: none;
     }
@@ -454,13 +548,13 @@
     flex-direction: column;
     align-items: center;
     flex: 1;
-    
+
     .label {
         font-size: 12px;
         color: #999;
         margin-bottom: 4px;
     }
-    
+
     .value {
         font-size: 14px;
         color: #000;
@@ -472,32 +566,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     .time {
         font-size: 12px;
         color: #999;
         flex: 1;
     }
-    
+
     .importance-stars {
         display: flex;
         gap: 2px;
         margin: 0 8px;
-        
+
         .star {
             font-size: 12px;
-            
+
             &:not(.filled) {
                 opacity: 0.3;
                 filter: grayscale(1);
             }
-            
+
             &.filled {
                 opacity: 1;
             }
         }
     }
-    
+
     .country-flag {
         display: flex;
         align-items: center;
@@ -505,11 +599,11 @@
         background: #ffebee;
         padding: 2px 8px;
         border-radius: 12px;
-        
+
         .country-icon {
             font-size: 12px;
         }
-        
+
         .country-code {
             font-size: 12px;
             color: #666;

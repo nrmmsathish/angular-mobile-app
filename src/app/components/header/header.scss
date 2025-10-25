@@ -1,11 +1,11 @@
 .header {
-    background: var(--background-primary);
-    padding: var(--spacing-md) var(--spacing-xl) var(--spacing-sm);
-    box-shadow: var(--shadow-sm);
+    background: var(--primary-color);
+    padding: var(--spacing-md) var(--spacing-xl) var(--spacing-lg);
+    box-shadow: var(--shadow-md);
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid var(--separator-color);
+    border-bottom: none;
 }
 
 .status-bar {
@@ -13,15 +13,18 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--spacing-lg);
+    font-family: var(--font-family-primary);
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
-    color: var(--text-primary);
+    color: white;
+    letter-spacing: -0.01em;
 }
 
 .signal-info {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
+    color: white;
 }
 
 .signal-bars {
@@ -32,8 +35,9 @@
 
 .signal-bars .bar {
     width: 3px;
-    background: var(--text-primary);
+    background: white;
     border-radius: 1px;
+    opacity: 0.8;
 }
 
 .signal-bars .bar:nth-child(1) {
@@ -56,15 +60,17 @@
     font-size: 15px;
     font-weight: 600;
     margin-left: 2px;
+    color: white;
 }
 
 .battery {
     position: relative;
     width: 24px;
     height: 12px;
-    border: 1px solid #000;
+    border: 1px solid white;
     border-radius: 2px;
     margin-left: 2px;
+    opacity: 0.9;
 }
 
 .battery-level {
@@ -73,7 +79,7 @@
     left: 1px;
     width: 70%;
     height: calc(100% - 2px);
-    background: #4CAF50;
+    background: white;
     border-radius: 1px;
 }
 
@@ -83,83 +89,49 @@
     top: 3px;
     width: 2px;
     height: 6px;
-    background: #000;
+    background: white;
     border-radius: 0 1px 1px 0;
+    opacity: 0.9;
 }
 
-.nav-tabs {
+/* ==== BRAND SECTION ==== */
+.brand-section {
     display: flex;
     align-items: center;
-    gap: 24px;
+    justify-content: center;
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
 }
 
-.nav-tab {
-    background: none;
-    border: none;
-    font-size: 16px;
-    color: #999;
-    cursor: pointer;
-    padding: 8px 0;
-    position: relative;
+.brand-logo {
+    height: 32px;
+    width: auto;
+    opacity: 0.95;
 }
 
-.nav-tab.active {
-    color: #000;
-    font-weight: 600;
+.app-title {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: white;
+    letter-spacing: -0.01em;
 }
 
-.nav-tab.active::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #007AFF;
-    border-radius: 1px;
-}
-
-.ai-badge {
-    background: #FFD700;
-    border-radius: 16px;
-    padding: 6px 12px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-left: auto;
-}
-
-.ai-icon {
-    font-size: 14px;
-}
-
-.search-btn,
-.chat-btn {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 8px;
-    margin-left: 8px;
-}
-.ai-badge {
-    background: #FFD60A;
-    border: none;
-    border-radius: 20px;
-    padding: 6px 12px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.ai-badge:hover {
-    background: #FFCD00;
-}
-
-.ai-badge:active {
-    transform: scale(0.95);
+/* ==== RESPONSIVE DESIGN ==== */
+@media (max-width: 480px) {
+    .header {
+        padding: var(--spacing-sm) var(--spacing-md) var(--spacing-md);
+    }
+    
+    .brand-section {
+        gap: var(--spacing-sm);
+    }
+    
+    .brand-logo {
+        height: 28px;
+    }
+    
+    .app-title {
+        font-size: var(--font-size-base);
+    }
 }

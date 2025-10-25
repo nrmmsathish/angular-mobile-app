@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="120" height="40">
+  <defs>
+    <style>
+      .arch-red { fill: #E53E3E; }
+    </style>
+  </defs>
+  <!-- Red arch logo -->
+  <path class="arch-red" d="M100,350 C100,156.7 256.7,0 450,0 L750,0 C943.3,0 1100,156.7 1100,350 L1000,350 C1000,212.3 888.7,100 750,100 L450,100 C311.3,100 200,212.3 200,350 Z"/>
+</svg>
