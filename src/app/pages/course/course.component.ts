@@ -73,9 +73,13 @@ export class CourseComponent {
     if (this.showDetailContent) {
       // If in detail mode, go back to overview
       this.showDetailContent = false;
+      // Scroll to top when going back to overview
+      window.scrollTo(0, 0);
     } else {
       // If in overview mode, go back to academy
-      this.router.navigate(["/academy"]);
+      this.router.navigate(["/academy"]).then(() => {
+        window.scrollTo(0, 0);
+      });
     }
   }
 
@@ -96,6 +100,10 @@ export class CourseComponent {
     } else {
       this.showDetailContent = false;
     }
+    
+    // Scroll to top when selecting a day
+    window.scrollTo(0, 0);
+    
     console.log('Selected day:', day);
   }
 }

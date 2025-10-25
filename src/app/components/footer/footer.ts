@@ -23,22 +23,30 @@ export class FooterComponent implements OnInit {
     // Set initial page based on current route
     this.setPageFromRoute();
     
-    // Listen to route changes to update the current page
+    // Listen to route changes to update the current page and scroll to top
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => this.setPageFromRoute());
+      .subscribe(() => {
+        this.setPageFromRoute();
+        // Scroll to top on every route change
+        window.scrollTo(0, 0);
+      });
   }
 
   navigateTo(route: string, tabName: string) {
     this.activeTab = tabName;
     this.navigationService.setCurrentPage(tabName);
-    this.router.navigate([route]);
+    this.router.navigate([route]).then(() => {
+      window.scrollTo(0, 0);
+    });
   }
 
   openAIChat() {
     this.activeTab = "Assistant";
     this.navigationService.setCurrentPage("Assistant");
-    this.router.navigate(["/chatbot"]);
+    this.router.navigate(["/chatbot"]).then(() => {
+      window.scrollTo(0, 0);
+    });
   }
 
   private setPageFromRoute() {
