@@ -56,39 +56,35 @@ export class DiscoverComponent {
 
   tradingGroups: TradingGroup[] = [
     {
-      title: "Indian Concept",
-      subtitle: "Type:Stock | Markets:IN | Theme:Indian Market Focus",
-      stocks: [
-        { name: "General Motors", percentage: "+14.86%", isPositive: true },
-        { name: "Steel Dynamics", percentage: "+5.15%", isPositive: true },
-      ],
-    },
-    {
-      title: "Bitcoin ETF",
+      title: "Crypto ETF",
       subtitle: "Type:ETF | Markets:US | Theme:Cryptocurrency",
       stocks: [
-        { name: "General Motors", percentage: "+14.86%", isPositive: true },
-        { name: "Vicor", percentage: "+13.37%", isPositive: true },
+        { name: "Hashdex Bitcoin ETF (DEFI)", percentage: "+0.97%", isPositive: true },
+        { name: "Invesco Galaxy Bitcoin ETF (BTCO)", percentage: "+0.96%", isPositive: true },
       ],
     },
     {
       title: "Warren Buffett Holdings",
       subtitle: "Type:Stock | Markets:US | Theme:Berkshire Hathaway Portfolio",
       stocks: [
-        { name: "IMOTIONTECH", percentage: "+10.99%", isPositive: true },
-        { name: "OSHIDORI", percentage: "+10.42%", isPositive: true },
+        { name: "Coca-Cola (KO)", percentage: "+4.06%", isPositive: true },
+        { name: "Pool (POOL)", percentage: "+2.91%", isPositive: true },
       ],
     },
     {
       title: "Nancy Pelosi Portfolio",
       subtitle: "Type:Stock | Markets:US | Theme:Political Portfolio Tracking",
       stocks: [
-        { name: "YZJ Shipbldg CNY", percentage: "+55.73%", isPositive: true },
-        {
-          name: "NetEase 5xShortSG261027",
-          percentage: "+27.27%",
-          isPositive: true,
-        },
+        { name: "Warner Bros. Discovery (WBD)", percentage: "+10.97%", isPositive: true },
+        { name: "Salesforce.com (CRM)", percentage: "+3.59%", isPositive: true },
+      ],
+    },
+    {
+      title: "Indian Concept",
+      subtitle: "Type:Stock | Markets:IN | Theme:Indian Market Focus",
+      stocks: [
+        { name: "Infosys (INFY)", percentage: "+2.96%", isPositive: true },
+        { name: "Wipro Limited (WIT)", percentage: "+1.89%", isPositive: true },
       ],
     },
   ];
@@ -170,7 +166,7 @@ export class DiscoverComponent {
   navigateToScreener(groupTitle: string) {
     if (groupTitle === "Indian Concept") {
       this.router.navigate(["/indian-concept"]);
-    } else if (groupTitle === "Bitcoin ETF") {
+    } else if (groupTitle === "Crypto ETF") {
       this.router.navigate(["/bitcoin-etf"]);
     } else if (groupTitle === "Warren Buffett Holdings") {
       this.router.navigate(["/warren-buffett"]);
