@@ -70,7 +70,25 @@
 
           <!-- Update Button for sections with items -->
           <div class="section-actions" *ngIf="section.items && section.items.length > 0">
-            <button class="update-button" (click)="updateForm()">Update</button>
+            <button 
+              class="update-button" 
+              [class.updating]="isUpdating"
+              [class.success]="showSuccessAnimation"
+              (click)="updateForm()"
+              [disabled]="isUpdating"
+            >
+              <span class="button-content" [class.hide]="isUpdating || showSuccessAnimation">
+                Update
+              </span>
+              <span class="loading-spinner" [class.show]="isUpdating">
+                <div class="spinner"></div>
+                Updating...
+              </span>
+              <span class="success-content" [class.show]="showSuccessAnimation">
+                <span class="success-icon">✅</span>
+                Updated!
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -84,6 +102,18 @@
     <!-- Copyright -->
     <div class="copyright">
       <p>© Citi Group 2025</p>
+    </div>
+  </div>
+
+  <!-- Success Animation Overlay -->
+  <div class="success-overlay" *ngIf="showSuccessAnimation">
+    <div class="success-animation">
+      <div class="success-circle">
+        <div class="success-checkmark">✓</div>
+      </div>
+      <h3 class="success-title">Form Updated Successfully!</h3>
+      <p class="success-subtitle">Reward added to your gamified profile</p>
+      <div class="success-points">+100 XP</div>
     </div>
   </div>
 </div>

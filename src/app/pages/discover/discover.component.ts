@@ -40,18 +40,18 @@ interface EarningsDay {
   styleUrls: ["./discover.component.scss"],
 })
 export class DiscoverComponent {
-  activeMainTab = "Top";
+  activeMainTab = "Hot Strategy";
   activeSubTab = "Screener";
-  activeFilterTab = "Followed List";
+  activeFilterTab = "Similar Candlesticks";
   activeEarningsTab = "Dividend";
 
   selectedDate = "10 / 22";
   selectedYear = "2025";
   selectedPeriod = "Day";
 
-  mainTabs = ["Top", "Calendar"];
-  subTabs = ["Movers & Shakers", "Top Buys & Sells", "Screener"];
-  filterTabs = ["Most Active", "Similar Candlesticks", "Followed List"];
+  mainTabs = ["Hot Strategy", "Calendar"];
+  subTabs = [];
+  filterTabs = [];
   earningsTabs = ["Earnings", "Dividend", "Economy"];
 
   tradingGroups: TradingGroup[] = [

@@ -9,9 +9,14 @@ import { CourseComponent } from "./app/pages/course/course.component";
 import { ChatbotComponent } from "./app/pages/chatbot/chatbot.component";
 import { StockDetailComponent } from "./app/pages/stock-detail/stock-detail.component";
 import { OnboardingComponent } from "./app/pages/onboarding/onboarding.component";
+import { GamifiedOnboardingComponent } from "./app/pages/gamified-onboarding/gamified-onboarding.component";
 import { CompleteFormsComponent } from "./app/pages/complete-forms/complete-forms.component";
+import { CitiHomeComponent } from "./app/pages/citi-home/citi-home.component";
+import { DashboardComponent } from "./app/pages/dashboard/dashboard.component";
 const routes: Routes = [
-  { path: "", redirectTo: "/academy", pathMatch: "full" },
+  { path: "", redirectTo: "/citi-home", pathMatch: "full" },
+  { path: "citi-home", component: CitiHomeComponent },
+  { path: "dashboard", component: DashboardComponent },
   { path: "discover", component: DiscoverComponent },
   { path: "academy", component: AcademyComponent },
   { path: "home", component: DiscoverComponent },
@@ -24,6 +29,7 @@ const routes: Routes = [
   { path: "profile", component: DiscoverComponent },
   { path: "chatbot", component: ChatbotComponent },
   { path: "onboarding", component: OnboardingComponent },
+  { path: "gamified-onboarding", component: GamifiedOnboardingComponent },
   { path: "complete-forms", component: CompleteFormsComponent },
   { path: "indian-concept", component: StockDetailComponent },
   { path: "bitcoin-etf", component: StockDetailComponent },

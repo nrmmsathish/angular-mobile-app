@@ -9,8 +9,11 @@
 
   <!-- Hero Image -->
   <div class="hero-section">
-    <div class="hero-image">
+    <div class="hero-image" (click)="openGamifiedOnboarding()">
       <img src="assets/images/mountain-journey.png" alt="Investment Journey" class="journey-illustration">
+      <div class="gamify-overlay">
+        <div class="gamify-text">🎮 Try Gamified Mode!</div>
+      </div>
     </div>
   </div>
 
@@ -18,6 +21,7 @@
   <div class="get-ready-section">
     <div class="progress-indicator">
       <span class="progress-text">{{completedSteps}}/{{totalSteps}}</span>
+      <div class="current-stage">Stage {{getCurrentStage()}}: {{getCurrentStageName()}}</div>
     </div>
     <div class="status-badge">Not started</div>
     
@@ -25,6 +29,18 @@
     <p class="section-description">
       Complete your investor profile to open up a world of exciting wealth opportunities.
     </p>
+
+    <!-- Gamified Option -->
+    <div class="gamified-option">
+      <div class="gamified-card" (click)="openGamifiedOnboarding()">
+        <div class="gamified-icon">🎮</div>
+        <div class="gamified-content">
+          <h4 class="gamified-title">Try Gamified Experience</h4>
+          <p class="gamified-subtitle">Make onboarding fun with interactive challenges and rewards!</p>
+        </div>
+        <div class="gamified-arrow">→</div>
+      </div>
+    </div>
   </div>
 
   <!-- Personalise Section -->
@@ -78,7 +94,7 @@
     <div class="future-planner">
       <div class="planner-icon">❤️</div>
       <div class="planner-content">
-        <h4 class="planner-title">Future Planner</h4>
+        <h4 class="planner-title">Getting Investment Ready</h4>
         <p class="planner-subtitle">Start planning for your future</p>
         <button class="start-button" (click)="startFuturePlanner()">Start now</button>
       </div>

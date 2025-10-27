@@ -42,8 +42,8 @@ export class FooterComponent implements OnInit {
   }
 
   openAIChat() {
-    this.activeTab = "Assistant";
-    this.navigationService.setCurrentPage("Assistant");
+    this.activeTab = "AI Assist";
+    this.navigationService.setCurrentPage("AI Assist");
     this.router.navigate(["/chatbot"]).then(() => {
       window.scrollTo(0, 0);
     });
@@ -58,13 +58,13 @@ export class FooterComponent implements OnInit {
       this.activeTab = 'Academy';
       this.navigationService.setCurrentPage('Academy');
     } else if (url.includes('/chatbot')) {
-      this.activeTab = 'Assistant';
-      this.navigationService.setCurrentPage('Assistant');
+      this.activeTab = 'AI Assist';
+      this.navigationService.setCurrentPage('AI Assist');
     } else if (url.includes('/onboarding')) {
-      this.activeTab = 'Onboarding';
-      this.navigationService.setCurrentPage('Onboarding');
+      this.activeTab = 'My Achievements';
+      this.navigationService.setCurrentPage('My Achievements');
     } else if (url.includes('/complete-forms')) {
-      this.activeTab = 'Onboarding';
+      this.activeTab = 'My Achievements';
       this.navigationService.setCurrentPage('Complete Forms');
     } else if (url.includes('/course')) {
       this.activeTab = 'Academy';

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { RewardService } from '../../services/reward.service';
 
 interface FormSection {
   id: string;
@@ -30,6 +31,10 @@ interface FormItem {
   styleUrls: ['./complete-forms.component.scss']
 })
 export class CompleteFormsComponent {
+  isUpdating = false;
+  showSuccessAnimation = false;
+  formUpdateCount = 0;
+  
   formSections: FormSection[] = [
     {
       id: 'customer-knowledge',
@@ -104,7 +109,7 @@ export class CompleteFormsComponent {
     }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private rewardService: RewardService) {}
 
   close() {
     this.router.navigate(['/onboarding']);
@@ -118,7 +123,30 @@ export class CompleteFormsComponent {
   }
 
   updateForm() {
-    console.log('Update form clicked');
+    // Start loading animation
+    this.isUpdating = true;
+    
+    // Simulate form update process
+    setTimeout(() => {
+      this.isUpdating = false;
+      this.showSuccessAnimation = true;
+      this.formUpdateCount++;
+      
+      // Add reward based on update count
+      if (this.formUpdateCount === 1) {
+        // First form update - special achievement
+        this.rewardService.addReward(RewardService.FIRST_FORM_REWARD);
+      } else {
+        // Regular form update
+        this.rewardService.addReward(RewardService.FORM_UPDATE_REWARD);
+      }
+      
+      // Hide success animation after 2 seconds
+      setTimeout(() => {
+        this.showSuccessAnimation = false;
+      }, 2000);
+      
+    }, 1500); // Simulate 1.5 second processing time
   }
 
   viewRequiredForms() {

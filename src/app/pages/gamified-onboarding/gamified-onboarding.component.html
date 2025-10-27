@@ -1,0 +1,174 @@
+<div class="gamified-container">
+  <!-- Header with back button -->
+  <div class="header">
+    <button class="back-button" (click)="goBack()">
+      <span class="back-icon">←</span>
+    </button>
+    <h1 class="page-title">Your Investment Journey</h1>
+  </div>
+
+  <!-- Player Stats Card -->
+  <div class="player-stats">
+    <div class="stats-header">
+      <div class="avatar">
+        <div class="avatar-image">👤</div>
+        <div class="level-badge">Lv.{{playerLevel}}</div>
+      </div>
+      <div class="player-info">
+        <h2 class="player-name">Richard Lim</h2>
+        <p class="player-title">Aspiring Investor</p>
+      </div>
+      <div class="streak-counter">
+        <div class="streak-icon">🔥</div>
+        <span class="streak-number">{{streak}} day streak</span>
+      </div>
+    </div>
+    
+    <!-- XP Progress Bar -->
+    <div class="xp-container">
+      <div class="xp-label">
+        <span>Experience Points</span>
+        <span class="xp-points">{{currentXP}}/{{nextLevelXP}} XP</span>
+      </div>
+      <div class="xp-bar">
+        <div class="xp-progress" [style.width.%]="progressPercentage"></div>
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="quick-stats">
+      <div class="stat-item">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-value">{{animatedPoints}}</div>
+        <div class="stat-label">Total Points</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">✅</div>
+        <div class="stat-value">{{completedTasksCount}}/{{totalTasksCount}}</div>
+        <div class="stat-label">Tasks Done</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">🏆</div>
+        <div class="stat-value">{{unlockedAchievementsCount}}</div>
+        <div class="stat-label">Achievements</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quest/Tasks Section -->
+  <div class="quests-section">
+    <h3 class="section-title">
+      <span class="title-icon">🎯</span>
+      Active Quests
+    </h3>
+    
+    <div class="tasks-grid">
+      <div 
+        *ngFor="let task of tasks" 
+        class="task-card"
+        [class.completed]="task.completed"
+        [class.pulse]="!task.completed"
+        (click)="completeTask(task.id)"
+      >
+        <div class="task-header">
+          <div class="task-icon">{{task.icon}}</div>
+          <div class="task-difficulty" [style.background-color]="getDifficultyColor(task.difficulty)">
+            {{task.difficulty}}
+          </div>
+        </div>
+        
+        <div class="task-content">
+          <h4 class="task-title">{{task.title}}</h4>
+          <p class="task-description">{{task.description}}</p>
+          <div class="task-meta">
+            <div class="task-category">{{task.category}}</div>
+            <div class="task-time">
+              <span class="time-icon">⏱️</span>
+              <span class="time-value">{{task.estimatedTime}}</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="task-footer">
+          <div class="task-points">
+            <span class="points-icon">💎</span>
+            <span class="points-value">+{{task.points}} XP</span>
+          </div>
+          <div class="task-status" *ngIf="task.completed">
+            <span class="status-icon">✅</span>
+            <span>Completed</span>
+          </div>
+          <div class="task-action" *ngIf="!task.completed">
+            <span class="action-text">Tap to start</span>
+            <span class="action-arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Achievements Section -->
+  <div class="achievements-section">
+    <h3 class="section-title">
+      <span class="title-icon">🏆</span>
+      Achievements
+    </h3>
+    
+    <div class="achievements-grid">
+      <div 
+        *ngFor="let achievement of achievements" 
+        class="achievement-card"
+        [class.unlocked]="achievement.unlocked"
+        [class.locked]="!achievement.unlocked"
+        (click)="claimReward(achievement)"
+      >
+        <div class="achievement-icon">{{achievement.icon}}</div>
+        <div class="achievement-info">
+          <h4 class="achievement-title">{{achievement.title}}</h4>
+          <p class="achievement-description">{{achievement.description}}</p>
+          <div class="achievement-requirement">{{achievement.requirement}}</div>
+        </div>
+        <div class="achievement-status">
+          <span *ngIf="achievement.unlocked" class="unlocked-badge">Unlocked!</span>
+          <span *ngIf="!achievement.unlocked" class="locked-icon">🔒</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Motivational Quote -->
+  <div class="motivation-card">
+    <div class="quote-icon">💡</div>
+    <blockquote class="quote">
+      "The best time to plant a tree was 20 years ago. The second best time is now."
+    </blockquote>
+    <cite class="quote-author">- Chinese Proverb</cite>
+  </div>
+
+  <!-- Level Up Animation -->
+  <div class="level-up-overlay" *ngIf="showLevelUp">
+    <div class="level-up-content">
+      <div class="level-up-icon">🎉</div>
+      <h2 class="level-up-title">LEVEL UP!</h2>
+      <p class="level-up-text">You've reached Level {{playerLevel}}!</p>
+      <div class="level-up-reward">New features unlocked!</div>
+    </div>
+  </div>
+
+  <!-- Points Animation -->
+  <div class="points-animation" *ngIf="showPointsAnimation">
+    <div class="floating-points">+{{animatedPoints}} XP</div>
+  </div>
+
+  <!-- Reward Notification -->
+  <div class="reward-notification" *ngIf="showRewardNotification && currentReward">
+    <div class="reward-content">
+      <div class="reward-icon">{{currentReward.icon}}</div>
+      <div class="reward-info">
+        <h3 class="reward-title">{{currentReward.title}}</h3>
+        <p class="reward-description">{{currentReward.description}}</p>
+        <div class="reward-points">+{{currentReward.points}} XP</div>
+      </div>
+    </div>
+  </div>
+</div>

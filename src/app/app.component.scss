@@ -12,12 +12,27 @@
     overflow-y: auto;
     padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); /* Safe area for mobile devices */
     
+    /* Full screen mode for Citi home page */
+    &.full-screen {
+        padding-bottom: 0;
+        height: 100vh;
+        height: 100dvh;
+    }
+    
     /* Ensure content doesn't get cut off on very small screens */
     @media screen and (max-height: 600px) {
         padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px));
+        
+        &.full-screen {
+            padding-bottom: 0;
+        }
     }
     
     @media screen and (max-height: 500px) {
         padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+        
+        &.full-screen {
+            padding-bottom: 0;
+        }
     }
 }

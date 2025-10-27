@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { Router } from "@angular/router";
 import { NavigationService } from "../../services/navigation.service";
 import { Subscription } from "rxjs";
 
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private timeInterval: any;
   private navigationSubscription!: Subscription;
 
-  constructor(private navigationService: NavigationService) {}
+  constructor(private navigationService: NavigationService, private router: Router) {}
 
   ngOnInit() {
     this.updateTime();
@@ -46,5 +47,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       minute: "2-digit",
       hour12: false,
     });
+  }
+
+  onLogoClick() {
+    this.router.navigate(['/dashboard']);
   }
 }

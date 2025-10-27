@@ -10,10 +10,10 @@
     </button>
   </div>
 
-  <!-- Content for Hot Tab -->
-  <div *ngIf="activeMainTab === 'Top'">
+  <!-- Content for Hot Strategy Tab -->
+  <div *ngIf="activeMainTab === 'Hot Strategy'">
     <!-- Sub Navigation Tabs -->
-    <div class="sub-tabs">
+    <div class="sub-tabs" *ngIf="subTabs.length > 0">
       <button 
         *ngFor="let tab of subTabs" 
         class="sub-tab" 
@@ -24,7 +24,7 @@
     </div>
 
     <!-- Filter Tabs -->
-    <div class="filter-tabs">
+    <div class="filter-tabs" *ngIf="filterTabs.length > 0">
       <button 
         *ngFor="let tab of filterTabs" 
         class="filter-tab" 
@@ -32,14 +32,6 @@
         (click)="setFilterTab(tab)">
         {{tab}}
       </button>
-    </div>
-
-    <!-- Hot Strategy Section -->
-    <div class="hot-strategy">
-      <div class="strategy-header">
-        <span class="fire-icon">🔥</span>
-        <span class="strategy-text">Hot Strategy</span>
-      </div>
     </div>
 
     <!-- Trading Groups -->

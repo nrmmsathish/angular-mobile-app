@@ -54,12 +54,51 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.02);
+      
+      .gamify-overlay {
+        opacity: 1;
+      }
+    }
     
     .journey-illustration {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 12px;
+    }
+    
+    .gamify-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(102, 126, 234, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      
+      .gamify-text {
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        animation: pulse 2s infinite;
+      }
     }
   }
 }
@@ -80,14 +119,25 @@
 
   .progress-indicator {
     display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
+    flex-direction: column;
+    gap: var(--spacing-xs);
     margin-bottom: var(--spacing-xs);
 
     .progress-text {
       font-size: var(--font-size-base);
       color: var(--text-primary);
       font-weight: var(--font-weight-semibold);
+    }
+
+    .current-stage {
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+      font-weight: var(--font-weight-medium);
+      padding: 4px 8px;
+      background: rgba(102, 126, 234, 0.1);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      align-self: flex-start;
     }
   }
 
@@ -116,6 +166,98 @@
     line-height: 1.4;
     margin: 0;
     font-weight: var(--font-weight-regular);
+  }
+
+  .gamified-option {
+    margin-top: var(--spacing-lg);
+
+    .gamified-card {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      padding: var(--spacing-md);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+
+      // Animated background effect
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transition: left 0.6s ease;
+      }
+
+      &:hover::before {
+        left: 100%;
+      }
+
+      .gamified-icon {
+        font-size: 24px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: var(--radius-lg);
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .gamified-content {
+        flex: 1;
+        z-index: 1;
+
+        .gamified-title {
+          font-size: var(--font-size-lg);
+          font-weight: var(--font-weight-bold);
+          color: white;
+          margin: 0 0 4px 0;
+          line-height: 1.2;
+        }
+
+        .gamified-subtitle {
+          font-size: var(--font-size-sm);
+          color: rgba(255, 255, 255, 0.9);
+          margin: 0;
+          line-height: 1.3;
+          font-weight: var(--font-weight-medium);
+        }
+      }
+
+      .gamified-arrow {
+        font-size: 20px;
+        color: white;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+        z-index: 1;
+      }
+
+      &:hover .gamified-arrow {
+        transform: translateX(4px);
+      }
+    }
   }
 }
 
@@ -326,5 +468,17 @@
     &:active {
       opacity: 0.6;
     }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }
