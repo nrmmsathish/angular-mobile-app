@@ -15,7 +15,7 @@ export class CardRecommendationResultComponent implements OnInit {
   recommendedCard = {
     name: 'Citi Prestige® Card',
     type: 'Premium Travel Rewards',
-    annualFee: 'SGD 535',
+    annualFee: 'S$ 598 (before GST)',
     image: 'assets/images/citi-prestige-card.jpg',
     benefits: [
       '4X ThankYou Points on dining and entertainment',
