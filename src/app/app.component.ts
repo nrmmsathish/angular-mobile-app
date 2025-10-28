@@ -82,6 +82,10 @@ export class AppComponent implements OnInit {
       // Citi-home: show header but hide footer
       this.showHeader = true;
       this.showFooter = false;
+    } else if (url.includes('signup') || url.includes('card-questionnaire') || url.includes('card-recommendation-result') || url.includes('card-application-success')) {
+      // Signup and card-related pages: show header but hide footer
+      this.showHeader = true;
+      this.showFooter = false;
     } else {
       // All other pages: show both header and footer
       this.showHeader = true;

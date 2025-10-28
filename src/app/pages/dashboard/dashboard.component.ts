@@ -23,6 +23,20 @@ export class DashboardComponent {
   investmentLevel = 'Getting Started';
   currentStage = 'Stage 3';
   
+  // Stage progress properties
+  completedSteps = 3;
+  totalSteps = 6;
+  
+  // Define the stages
+  private stages = [
+    { name: 'Getting Started', range: [1, 1] },
+    { name: 'Initial Setup', range: [2, 2] },
+    { name: 'Profile Setup', range: [3, 3] },
+    { name: 'Risk Assessment', range: [4, 4] },
+    { name: 'Knowledge Check', range: [5, 5] },
+    { name: 'Final Review', range: [6, 6] }
+  ];
+  
   accountStats: AccountStat[] = [
     { 
       label: 'Miles', 
@@ -95,8 +109,41 @@ export class DashboardComponent {
 
   constructor(private router: Router) {}
 
+  // Stage progress methods
+  getCurrentStage(): number {
+    for (let i = 0; i < this.stages.length; i++) {
+      const stage = this.stages[i];
+      if (this.completedSteps >= stage.range[0] && this.completedSteps <= stage.range[1]) {
+        return i + 1;
+      }
+    }
+    return this.stages.length; // Default to last stage if beyond range
+  }
+
+  getCurrentStageName(): string {
+    const stageIndex = this.getCurrentStage() - 1;
+    return this.stages[stageIndex]?.name || 'Complete';
+  }
+
+  getStatusText(): string {
+    if (this.completedSteps < this.totalSteps) {
+      return 'In Progress';
+    }
+    return 'Complete';
+  }
+
+  continueOnboarding() {
+    this.router.navigate(['/onboarding']);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   onWanderPlusClick() {
     console.log('WanderPlus offer clicked');
+  }
+
+  onExploreBenefitsClick() {
+    this.router.navigate(['/card-questionnaire']);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   onTryNowClick() {

@@ -246,9 +246,15 @@
 
   <!-- Login Button -->
   <div class="login-section">
-    <button class="login-btn" (click)="onLoginClick()">
-      Login
-    </button>
+    <div class="auth-buttons">
+      <button class="login-btn" (click)="onLoginClick()">
+        Login
+      </button>
+      <button class="signup-btn" (click)="onSignUpClick()">
+        Sign Up
+      </button>
+    </div>
     <p class="bank-name">Citibank Singapore Limited</p>
+    <p class="new-customer-text">New to Citi? Start your banking journey with us</p>
   </div>
 </div>

@@ -49,88 +49,89 @@
       advice during your next investing with us.
     </p>
 
-    <!-- Profile Items -->
-    <div class="profile-items">
-      <!-- Net Worth -->
-      <div class="profile-item" (click)="navigateToSection('net-worth')">
-        <div class="item-icon">🏠</div>
-        <div class="item-content">
-          <h4 class="item-title">Net worth</h4>
-          <p class="item-subtitle">Tell us where you stand financially</p>
-        </div>
-        <div class="arrow-icon">›</div>
-      </div>
-
-      <!-- Pending Item -->
-      <div class="profile-item pending">
-        <div class="item-icon pending-icon">⚠</div>
-        <div class="item-content">
-          <span class="pending-text">Pending</span>
+    <!-- Investment Journey Stages -->
+    <div class="investment-journey">
+      <div class="journey-header">
+        <h4 class="journey-subtitle">Your Investment Journey Progress</h4>
+        <div class="points-summary">
+          <div class="points-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12,2 15.09,8.26 22,9 17,14 18.18,21 12,17.77 5.82,21 7,14 2,9 8.91,8.26"/>
+            </svg>
+            <span>{{totalEarnedPoints}}/{{totalPossiblePoints}} Points</span>
+          </div>
         </div>
       </div>
-
-      <!-- Risk Profile -->
-      <div class="profile-item" (click)="navigateToSection('risk-profile')">
-        <div class="item-icon">📊</div>
-        <div class="item-content">
-          <h4 class="item-title">Risk Profile Questionnaire</h4>
-          <p class="item-subtitle">Assess your willingness to take on investment risks</p>
+      
+      <div class="journey-stages">
+        <!-- Dynamic stages from investmentStages array -->
+        <div 
+          *ngFor="let stage of investmentStages; let i = index" 
+          class="journey-stage"
+          [class.completed]="stage.status === 'completed'"
+          [class.in-progress]="stage.status === 'in-progress'"
+          [class.pending]="stage.status === 'pending'"
+          (click)="navigateToStage(stage.id)">
+          
+          <div class="stage-indicator">
+            <div class="stage-icon" 
+                 [class.completed]="stage.status === 'completed'"
+                 [class.in-progress]="stage.status === 'in-progress'"
+                 [class.pending]="stage.status === 'pending'">
+              <!-- Completed icon -->
+              <svg *ngIf="stage.status === 'completed'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17L4 12"/>
+              </svg>
+              <!-- In progress spinner -->
+              <div *ngIf="stage.status === 'in-progress'" class="progress-spinner"></div>
+              <!-- Pending number -->
+              <span *ngIf="stage.status === 'pending'">{{i + 1}}</span>
+            </div>
+            <div class="stage-line" *ngIf="i < investmentStages.length - 1"></div>
+          </div>
+          
+          <div class="stage-content">
+            <div class="stage-main">
+              <h5 class="stage-title">{{stage.title}}</h5>
+              <p class="stage-description">{{stage.description}}</p>
+              
+              <div class="stage-meta">
+                <span class="stage-status" 
+                      [class.completed]="stage.status === 'completed'"
+                      [class.in-progress]="stage.status === 'in-progress'"
+                      [class.pending]="stage.status === 'pending'">
+                  {{stage.status === 'completed' ? 'Completed' : stage.status === 'in-progress' ? 'In Progress' : 'Pending'}}
+                </span>
+                
+                <div class="stage-timing">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12,6 12,12 16,14"/>
+                  </svg>
+                  <span *ngIf="stage.timeTaken" class="time-taken">{{stage.timeTaken}}</span>
+                  <span *ngIf="!stage.timeTaken" class="time-estimate">~{{stage.timeEstimate}}</span>
+                </div>
+                
+                <div class="stage-points">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12,2 15.09,8.26 22,9 17,14 18.18,21 12,17.77 5.82,21 7,14 2,9 8.91,8.26"/>
+                  </svg>
+                  <span *ngIf="stage.earnedPoints > 0" class="points-earned">+{{stage.earnedPoints}}</span>
+                  <span *ngIf="stage.earnedPoints === 0" class="points-potential">+{{stage.rewardPoints}}</span>
+                </div>
+              </div>
+            </div>
+            
+            <div *ngIf="stage.status === 'in-progress'" class="stage-actions">
+              <button class="continue-btn" (click)="continueInvestmentReady($event)">
+                Continue Setup
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9,18 15,12 9,6"/>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="arrow-icon">›</div>
-      </div>
-
-      <!-- Pending Item -->
-      <div class="profile-item pending">
-        <div class="item-icon pending-icon">⚠</div>
-        <div class="item-content">
-          <span class="pending-text">Pending</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Future Planner -->
-    <div class="future-planner">
-      <div class="planner-icon">❤️</div>
-      <div class="planner-content">
-        <h4 class="planner-title">Getting Investment Ready</h4>
-        <p class="planner-subtitle">Start planning for your future</p>
-        <button class="start-button" (click)="startFuturePlanner()">Start now</button>
-      </div>
-    </div>
-
-    <!-- Customer Knowledge Assessment -->
-    <div class="profile-item" (click)="navigateToSection('knowledge-assessment')">
-      <div class="item-icon">📚</div>
-      <div class="item-content">
-        <h4 class="item-title">Customer Knowledge Assessment</h4>
-        <p class="item-subtitle">Assess your current knowledge relating to the products/risks and features.</p>
-      </div>
-      <div class="arrow-icon">›</div>
-    </div>
-
-    <!-- Pending Item for Knowledge Assessment -->
-    <div class="profile-item pending">
-      <div class="item-icon pending-icon">⚠</div>
-      <div class="item-content">
-        <span class="pending-text">Pending</span>
-      </div>
-    </div>
-
-    <!-- Customer Account Review -->
-    <div class="profile-item" (click)="navigateToSection('account-review')">
-      <div class="item-icon">📋</div>
-      <div class="item-content">
-        <h4 class="item-title">Customer Account Review</h4>
-        <p class="item-subtitle">Review your current circumstances for the purposes/risks and features.</p>
-      </div>
-      <div class="arrow-icon">›</div>
-    </div>
-
-    <!-- Pending Item for Account Review -->
-    <div class="profile-item pending">
-      <div class="item-icon pending-icon">⚠</div>
-      <div class="item-content">
-        <span class="pending-text">Pending</span>
       </div>
     </div>
   </div>

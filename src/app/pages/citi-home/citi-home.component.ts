@@ -167,6 +167,14 @@ export class CitiHomeComponent implements OnInit {
     });
   }
 
+  onSignUpClick() {
+    // Navigate to signup page
+    this.router.navigate(['/signup']).then(() => {
+      // Scroll to top after navigation
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   onLogoClick() {
     this.router.navigate(['/dashboard']).then(() => {
       // Scroll to top after navigation

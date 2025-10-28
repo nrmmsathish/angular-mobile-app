@@ -1,0 +1,84 @@
+<div class="questionnaire-container">
+  <!-- Header -->
+  <div class="questionnaire-header">
+    <button class="back-btn" (click)="goBack()" title="Back">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="header-content">
+      <h1>Card Recommendation</h1>
+      <p>Answer a few questions to get your personalized card recommendation</p>
+    </div>
+  </div>
+
+  <!-- Progress Indicator -->
+  <div class="progress-container">
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="(currentStep / totalSteps) * 100"></div>
+    </div>
+    <span class="progress-text">{{currentStep}}/{{totalSteps}}</span>
+  </div>
+
+  <!-- Question Content -->
+  <div class="question-container">
+    <h2 class="question-title">{{getCurrentQuestion()}}</h2>
+    
+    <!-- Step 1: Monthly Spend -->
+    <div *ngIf="currentStep === 1" class="options-container">
+      <button 
+        *ngFor="let option of monthlySpendOptions" 
+        class="option-btn"
+        (click)="selectMonthlySpend(option.value)"
+        [class.selected]="questionnaireData.monthlySpend === option.value">
+        {{option.label}}
+      </button>
+    </div>
+
+    <!-- Step 2: Spend Category -->
+    <div *ngIf="currentStep === 2" class="options-container category-options">
+      <button 
+        *ngFor="let category of spendCategories" 
+        class="option-btn category-btn"
+        (click)="selectSpendCategory(category.value)"
+        [class.selected]="questionnaireData.primarySpendCategory === category.value">
+        <span class="category-icon">{{category.icon}}</span>
+        <span class="category-label">{{category.label}}</span>
+      </button>
+    </div>
+
+    <!-- Step 3: Travel Frequency -->
+    <div *ngIf="currentStep === 3" class="options-container">
+      <button 
+        *ngFor="let option of travelOptions" 
+        class="option-btn"
+        (click)="selectTravelFrequency(option.value)"
+        [class.selected]="questionnaireData.travelFrequency === option.value">
+        {{option.label}}
+      </button>
+    </div>
+
+    <!-- Step 4: Rewards Preference -->
+    <div *ngIf="currentStep === 4" class="options-container category-options">
+      <button 
+        *ngFor="let reward of rewardsOptions" 
+        class="option-btn category-btn"
+        (click)="selectRewardsPreference(reward.value)"
+        [class.selected]="questionnaireData.rewardsPreference === reward.value">
+        <span class="category-icon">{{reward.icon}}</span>
+        <span class="category-label">{{reward.label}}</span>
+      </button>
+    </div>
+
+    <!-- Step 5: Income -->
+    <div *ngIf="currentStep === 5" class="options-container">
+      <button 
+        *ngFor="let option of incomeOptions" 
+        class="option-btn"
+        (click)="selectIncome(option.value)"
+        [class.selected]="questionnaireData.annualIncome === option.value">
+        {{option.label}}
+      </button>
+    </div>
+  </div>
+</div>

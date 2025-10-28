@@ -1,0 +1,261 @@
+<div class="signup-container">
+  <!-- Header -->
+  <div class="signup-header">
+    <button class="back-btn" (click)="goBack()" title="Back to Home">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="header-content">
+      <h1>Open Your Citi Account</h1>
+      <p>Join millions of customers who trust Citi for their banking needs</p>
+    </div>
+  </div>
+
+  <!-- Progress Indicator -->
+  <div class="progress-container">
+    <div class="progress-steps">
+      <div 
+        *ngFor="let step of steps; let i = index" 
+        class="progress-step"
+        [class.completed]="step.status === 'completed'"
+        [class.current]="step.status === 'current'"
+        [class.clickable]="step.id <= currentStep + 1"
+        (click)="goToStep(step.id)">
+        <div class="step-circle">
+          <span *ngIf="step.status === 'completed'">✓</span>
+          <span *ngIf="step.status !== 'completed'">{{step.id}}</span>
+        </div>
+        <div class="step-label">{{step.title}}</div>
+        <div class="step-line" *ngIf="i < steps.length - 1"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="step-content">
+      <div class="step-icon">{{getCurrentStep().icon}}</div>
+      <h2>{{getCurrentStep().title}}</h2>
+      <p class="step-description">{{getCurrentStep().description}}</p>
+      
+      <!-- Account Selection (Step 1) -->
+      <div *ngIf="currentStep === 1" class="account-selection">
+        <div class="account-grid">
+          <div 
+            *ngFor="let account of accountTypes" 
+            class="account-card"
+            [class.selected]="selectedAccount === account.id"
+            (click)="selectAccount(account.id)">
+            <div class="account-header">
+              <span class="account-icon">{{account.icon}}</span>
+              <h3>{{account.name}}</h3>
+            </div>
+            <p class="account-description">{{account.description}}</p>
+            <div class="account-details">
+              <div class="detail-row">
+                <span class="label">Min Balance:</span>
+                <span class="value">{{account.minBalance}}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Interest Rate:</span>
+                <span class="value">{{account.interestRate}}</span>
+              </div>
+            </div>
+            <div class="account-features">
+              <div *ngFor="let feature of account.features" class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span>{{feature}}</span>
+              </div>
+            </div>
+            <div class="selection-indicator" *ngIf="selectedAccount === account.id">
+              <span>✓ Selected</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SingPass Verification (Step 4) -->
+      <div *ngIf="currentStep === 4" class="verification-section">
+        <div class="singpass-container">
+          <div class="singpass-header">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiByeD0iNCIgZmlsbD0iI0VEMUMyNCIvPgo8dGV4dCB4PSI1MCIgeT0iMjUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TaW5nUGFzczwvdGV4dD4KPHN2Zz4=" alt="SingPass" class="singpass-logo">
+            <h3>Verify with SingPass</h3>
+            <p>Secure and instant identity verification</p>
+          </div>
+
+          <div class="qr-section" *ngIf="!qrCodeGenerated">
+            <div class="qr-placeholder">
+              <div class="qr-icon">📱</div>
+              <p>Click to generate QR code</p>
+            </div>
+            <button class="btn btn-primary generate-qr-btn" (click)="generateQRCode()">
+              Generate QR Code
+            </button>
+          </div>
+
+          <div class="qr-section" *ngIf="qrCodeGenerated && !verificationComplete">
+            <div class="qr-code">
+              <div class="qr-pattern">
+                <div class="qr-grid">
+                  <div *ngFor="let filled of getQRPattern(); let i = index" class="qr-cell" [class.filled]="filled"></div>
+                </div>
+              </div>
+            </div>
+            <div class="verification-steps">
+              <p><strong>Step 1:</strong> Open your SingPass app</p>
+              <p><strong>Step 2:</strong> Scan the QR code above</p>
+              <p><strong>Step 3:</strong> Confirm your identity</p>
+            </div>
+            <div class="verification-status">
+              <div class="loading-spinner"></div>
+              <p>Waiting for verification...</p>
+            </div>
+          </div>
+
+          <div class="verification-success" *ngIf="verificationComplete">
+            <div class="success-icon">✅</div>
+            <h3>Verification Successful!</h3>
+            <p>Your identity has been verified successfully</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Application Reference (Step 5) -->
+      <div *ngIf="currentStep === 5" class="completion-section">
+        <div class="success-container">
+          <div class="success-icon-large">🎉</div>
+          <h3>Account Application Submitted!</h3>
+          <p>Your application has been successfully submitted and is being processed.</p>
+          
+          <div class="reference-card">
+            <h4>Application Reference Number</h4>
+            <div class="reference-number">
+              <span class="ref-text">{{applicationReference}}</span>
+              <button class="copy-btn" (click)="copyReferenceNumber()" title="Copy to clipboard">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+              </button>
+            </div>
+            <p class="ref-note">Please save this reference number for future correspondence</p>
+          </div>
+
+          <div class="next-steps">
+            <h4>What happens next?</h4>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot">1</div>
+                <div class="timeline-content">
+                  <h5>Application Review</h5>
+                  <p>We'll review your application within 1-2 business days</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot">2</div>
+                <div class="timeline-content">
+                  <h5>Account Activation</h5>
+                  <p>You'll receive an email confirmation once approved</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot">3</div>
+                <div class="timeline-content">
+                  <h5>Welcome Kit</h5>
+                  <p>Your debit card and welcome materials will be mailed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="selected-account-summary" *ngIf="getSelectedAccount()">
+            <h4>Selected Account</h4>
+            <div class="account-summary-card">
+              <span class="account-icon">{{getSelectedAccount()?.icon}}</span>
+              <div class="account-info">
+                <h5>{{getSelectedAccount()?.name}}</h5>
+                <p>{{getSelectedAccount()?.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Default Step Details for other steps -->
+      <div *ngIf="currentStep !== 1 && currentStep !== 4 && currentStep !== 5" class="step-details">
+        <ul class="details-list">
+          <li *ngFor="let detail of getCurrentStep().details" class="detail-item">
+            <div class="detail-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>{{detail}}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button 
+          *ngIf="currentStep > 1" 
+          class="btn btn-secondary" 
+          (click)="previousStep()">
+          Previous
+        </button>
+        
+        <button 
+          *ngIf="currentStep < steps.length" 
+          class="btn btn-primary" 
+          [disabled]="!canProceedToNext()"
+          (click)="nextStep()">
+          <span *ngIf="currentStep === 1 && !selectedAccount">Select Account to Continue</span>
+          <span *ngIf="currentStep === 1 && selectedAccount">Continue with {{getSelectedAccount()?.name}}</span>
+          <span *ngIf="currentStep === 4 && !verificationComplete">Complete Verification</span>
+          <span *ngIf="currentStep !== 1 && (currentStep !== 4 || verificationComplete)">Next Step</span>
+        </button>
+        
+        <button 
+          *ngIf="currentStep === steps.length" 
+          class="btn btn-success" 
+          (click)="startApplication()">
+          Go to Dashboard
+        </button>
+      </div>
+    </div>
+
+    <!-- Additional Information -->
+    <div class="info-section">
+      <div class="info-card">
+        <h3>Why Choose Citi?</h3>
+        <ul class="benefits-list">
+          <li>🏆 Award-winning customer service</li>
+          <li>🌍 Global banking network</li>
+          <li>💳 Premium credit cards with rewards</li>
+          <li>📱 Advanced digital banking platform</li>
+          <li>🔒 Industry-leading security</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h3>Need Help?</h3>
+        <p>Our customer service team is available 24/7 to assist you.</p>
+        <div class="contact-options">
+          <button class="contact-btn">
+            <span>📞</span>
+            Call Us
+          </button>
+          <button class="contact-btn">
+            <span>💬</span>
+            Live Chat
+          </button>
+          <button class="contact-btn">
+            <span>📧</span>
+            Email Us
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

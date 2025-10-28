@@ -1,0 +1,102 @@
+<div class="result-container">
+  <!-- Header -->
+  <div class="result-header">
+    <button class="back-btn" (click)="goBack()" title="Back">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="header-content">
+      <h1>Your Perfect Match</h1>
+      <p>Based on your preferences, we recommend this premium card</p>
+    </div>
+  </div>
+
+  <!-- Success Message -->
+  <div class="success-message">
+    <div class="success-icon">✨</div>
+    <h2>Congratulations!</h2>
+    <p>We found the perfect credit card for your lifestyle</p>
+  </div>
+
+  <!-- Card Recommendation -->
+  <div class="card-showcase">
+    <div class="card-image-container">
+      <img [src]="recommendedCard.image" [alt]="recommendedCard.name" class="card-image" onerror="this.style.display='none'">
+      <div class="card-image-fallback">
+        <div class="fallback-card">
+          <div class="card-brand">CITI</div>
+          <div class="card-number">•••• •••• •••• 1234</div>
+          <div class="card-holder">PRESTIGE MEMBER</div>
+          <div class="card-type">{{recommendedCard.type}}</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card-details">
+      <h3 class="card-name">{{recommendedCard.name}}</h3>
+      <p class="card-type-text">{{recommendedCard.type}}</p>
+      <div class="annual-fee">
+        <span class="fee-label">Annual Fee:</span>
+        <span class="fee-amount">{{recommendedCard.annualFee}}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Welcome Bonus -->
+  <div class="welcome-bonus-section">
+    <div class="bonus-badge">Welcome Bonus</div>
+    <p class="bonus-text">{{recommendedCard.welcomeBonus}}</p>
+  </div>
+
+  <!-- Key Benefits -->
+  <div class="benefits-section">
+    <h3 class="section-title">Key Benefits</h3>
+    <div class="benefits-list">
+      <div *ngFor="let benefit of recommendedCard.benefits" class="benefit-item">
+        <div class="benefit-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 6L9 17L4 12"/>
+          </svg>
+        </div>
+        <span class="benefit-text">{{benefit}}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Grid -->
+  <div class="features-section">
+    <h3 class="section-title">Premium Features</h3>
+    <div class="features-grid">
+      <div *ngFor="let feature of recommendedCard.features" class="feature-card">
+        <h4 class="feature-title">{{feature.title}}</h4>
+        <ul class="feature-list">
+          <li *ngFor="let item of feature.items">{{item}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <button class="primary-btn apply-btn" (click)="applyNow()">
+      Apply Now
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9,18 15,12 9,6"/>
+      </svg>
+    </button>
+    <button class="secondary-btn learn-btn" (click)="learnMore()">
+      Learn More
+    </button>
+  </div>
+
+  <!-- Additional Actions -->
+  <div class="additional-actions">
+    <button class="text-btn" (click)="retakeSurvey()">
+      Retake Survey
+    </button>
+    <button class="text-btn" (click)="backToDashboard()">
+      Back to Dashboard
+    </button>
+  </div>
+</div>

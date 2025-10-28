@@ -13,10 +13,18 @@ import { GamifiedOnboardingComponent } from "./app/pages/gamified-onboarding/gam
 import { CompleteFormsComponent } from "./app/pages/complete-forms/complete-forms.component";
 import { CitiHomeComponent } from "./app/pages/citi-home/citi-home.component";
 import { DashboardComponent } from "./app/pages/dashboard/dashboard.component";
+import { SignupComponent } from "./app/pages/signup/signup.component";
+import { CardQuestionnaireComponent } from "./app/pages/card-questionnaire/card-questionnaire.component";
+import { CardRecommendationResultComponent } from "./app/pages/card-recommendation-result/card-recommendation-result.component";
+import { CardApplicationSuccessComponent } from "./app/pages/card-application-success/card-application-success.component";
 const routes: Routes = [
   { path: "", redirectTo: "/citi-home", pathMatch: "full" },
   { path: "citi-home", component: CitiHomeComponent },
   { path: "dashboard", component: DashboardComponent },
+  { path: "signup", component: SignupComponent },
+  { path: "card-questionnaire", component: CardQuestionnaireComponent },
+  { path: "card-recommendation-result", component: CardRecommendationResultComponent },
+  { path: "card-application-success", component: CardApplicationSuccessComponent },
   { path: "discover", component: DiscoverComponent },
   { path: "academy", component: AcademyComponent },
   { path: "home", component: DiscoverComponent },

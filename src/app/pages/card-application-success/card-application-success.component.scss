@@ -1,0 +1,449 @@
+.success-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 20px;
+}
+
+// Header Section
+.success-header {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  color: white;
+  padding: 32px 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  text-align: center;
+  
+  .header-content {
+    .success-icon-large {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      
+      svg {
+        width: 48px;
+        height: 48px;
+        color: white;
+      }
+    }
+    
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.5px;
+      color: #ffffff !important;
+    }
+    
+    p {
+      font-size: 16px;
+      opacity: 0.9;
+      margin: 0;
+      color: #ffffff !important;
+    }
+  }
+}
+
+// Reference Section
+.reference-section {
+  margin-bottom: 24px;
+  
+  .reference-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid #10b981;
+    
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+      margin: 0 0 16px 0;
+    }
+    
+    .reference-number {
+      font-size: 24px;
+      font-weight: 700;
+      color: #059669;
+      font-family: 'Courier New', monospace;
+      background: #f0fdf4;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin: 0 0 12px 0;
+      letter-spacing: 1px;
+    }
+    
+    .reference-note {
+      font-size: 14px;
+      color: #6b7280;
+      margin: 0 0 16px 0;
+    }
+    
+    .copy-btn {
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 auto;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        background: #059669;
+        transform: translateY(-1px);
+      }
+      
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+// Details Section
+.details-section {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 16px 0;
+  }
+  
+  .details-grid {
+    display: grid;
+    gap: 12px;
+    
+    .detail-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f3f4f6;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      .detail-label {
+        font-size: 14px;
+        color: #6b7280;
+        font-weight: 500;
+      }
+      
+      .detail-value {
+        font-size: 14px;
+        color: #1f2937;
+        font-weight: 600;
+        text-align: right;
+      }
+    }
+  }
+}
+
+// Next Steps Section
+.next-steps-section {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 20px 0;
+  }
+  
+  .steps-timeline {
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      .step-number {
+        background: #10b981;
+        color: white;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 600;
+        min-width: 28px;
+        margin-top: 2px;
+      }
+      
+      .step-content {
+        font-size: 14px;
+        color: #374151;
+        line-height: 1.5;
+        padding-top: 4px;
+      }
+    }
+  }
+}
+
+// Benefits Section
+.benefits-section {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 20px 0;
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    
+    .benefit-card {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      
+      .benefit-icon {
+        font-size: 32px;
+        margin-bottom: 12px;
+      }
+      
+      .benefit-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1f2937;
+        margin: 0 0 8px 0;
+      }
+      
+      .benefit-description {
+        font-size: 13px;
+        color: #6b7280;
+        margin: 0;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+// Contact Section
+.contact-section {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 20px 0;
+  }
+  
+  .contact-options {
+    display: grid;
+    gap: 16px;
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      background: #f8fafc;
+      border-radius: 8px;
+      
+      .contact-icon {
+        background: #10b981;
+        color: white;
+        border-radius: 8px;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      
+      .contact-details {
+        .contact-label {
+          display: block;
+          font-size: 12px;
+          color: #6b7280;
+          font-weight: 500;
+          margin-bottom: 2px;
+        }
+        
+        .contact-value {
+          font-size: 14px;
+          color: #1f2937;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+// Action Buttons
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  
+  .primary-btn, .secondary-btn {
+    flex: 1;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .primary-btn {
+    background: #10b981;
+    color: white;
+    border: none;
+    
+    &:hover {
+      background: #059669;
+      transform: translateY(-1px);
+    }
+    
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  
+  .secondary-btn {
+    background: white;
+    color: #10b981;
+    border: 2px solid #10b981;
+    
+    &:hover {
+      background: #f0fdf4;
+    }
+  }
+}
+
+// Additional Actions
+.additional-actions {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  
+  .text-btn {
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+    padding: 8px 12px;
+    
+    &:hover {
+      color: #374151;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .success-container {
+    padding: 16px;
+  }
+  
+  .success-header {
+    padding: 24px 16px;
+    
+    .header-content {
+      .success-icon-large {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 16px;
+        
+        svg {
+          width: 36px;
+          height: 36px;
+        }
+      }
+      
+      h1 {
+        font-size: 22px;
+      }
+      
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+  
+  .reference-card {
+    padding: 20px 16px;
+    
+    .reference-number {
+      font-size: 20px;
+      padding: 10px 16px;
+    }
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .additional-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .details-section, .next-steps-section, .benefits-section, .contact-section {
+    padding: 20px 16px;
+  }
+}

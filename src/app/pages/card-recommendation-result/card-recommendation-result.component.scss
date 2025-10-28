@@ -1,0 +1,409 @@
+.result-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 20px;
+}
+
+// Header Section
+.result-header {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  color: white;
+  padding: 16px 20px;
+  border-radius: 12px;
+  position: relative;
+  margin-bottom: 20px;
+  
+  .back-btn {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(-2px);
+    }
+  }
+  
+  .header-content {
+    text-align: center;
+    padding-top: 8px;
+    
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0 0 4px 0;
+      letter-spacing: -0.5px;
+      color: #ffffff !important;
+    }
+    
+    p {
+      font-size: 14px;
+      opacity: 0.9;
+      margin: 0;
+      color: #ffffff !important;
+    }
+  }
+}
+
+// Success Message
+.success-message {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  
+  .success-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #059669;
+    margin: 0 0 8px 0;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+  }
+}
+
+// Card Showcase
+.card-showcase {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  
+  .card-image-container {
+    position: relative;
+    margin-bottom: 20px;
+    
+    .card-image {
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card-image-fallback {
+      .fallback-card {
+        width: 300px;
+        height: 190px;
+        background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+        border-radius: 12px;
+        padding: 20px;
+        color: white;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        
+        .card-brand {
+          font-size: 18px;
+          font-weight: 700;
+          text-align: left;
+        }
+        
+        .card-number {
+          font-size: 16px;
+          font-family: 'Courier New', monospace;
+          letter-spacing: 2px;
+          text-align: center;
+          margin: 20px 0;
+        }
+        
+        .card-holder {
+          font-size: 12px;
+          text-align: left;
+          opacity: 0.8;
+        }
+        
+        .card-type {
+          font-size: 10px;
+          text-align: right;
+          opacity: 0.7;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+  
+  .card-details {
+    .card-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0 0 4px 0;
+    }
+    
+    .card-type-text {
+      font-size: 14px;
+      color: #6b7280;
+      margin: 0 0 12px 0;
+    }
+    
+    .annual-fee {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      
+      .fee-label {
+        font-size: 14px;
+        color: #6b7280;
+      }
+      
+      .fee-amount {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1f2937;
+      }
+    }
+  }
+}
+
+// Welcome Bonus
+.welcome-bonus-section {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  
+  .bonus-badge {
+    background: #d97706;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 16px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  
+  .bonus-text {
+    font-size: 14px;
+    color: #92400e;
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+}
+
+// Benefits Section
+.benefits-section {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 16px 0;
+  }
+  
+  .benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      
+      .benefit-icon {
+        background: #dcfce7;
+        color: #059669;
+        border-radius: 50%;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 24px;
+        height: 24px;
+        margin-top: 2px;
+      }
+      
+      .benefit-text {
+        font-size: 14px;
+        color: #374151;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+// Features Section
+.features-section {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 16px 0;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    
+    .feature-card {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 16px;
+      
+      .feature-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #1f2937;
+        margin: 0 0 8px 0;
+      }
+      
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+          font-size: 13px;
+          color: #6b7280;
+          margin-bottom: 4px;
+          padding-left: 12px;
+          position: relative;
+          
+          &:before {
+            content: '•';
+            color: #3b82f6;
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Action Buttons
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  
+  .primary-btn, .secondary-btn {
+    flex: 1;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .primary-btn {
+    background: #059669;
+    color: white;
+    border: none;
+    
+    &:hover {
+      background: #047857;
+      transform: translateY(-1px);
+    }
+  }
+  
+  .secondary-btn {
+    background: white;
+    color: #059669;
+    border: 2px solid #059669;
+    
+    &:hover {
+      background: #f0fdf4;
+    }
+  }
+}
+
+// Additional Actions
+.additional-actions {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  
+  .text-btn {
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: #374151;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .result-container {
+    padding: 16px;
+  }
+  
+  .card-showcase {
+    .card-image-container {
+      .card-image {
+        max-width: 250px;
+      }
+      
+      .fallback-card {
+        width: 250px;
+        height: 158px;
+        padding: 16px;
+      }
+    }
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .additional-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

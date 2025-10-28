@@ -17,8 +17,6 @@
       <h1 class="user-name">{{userName}}</h1>
       <div class="user-profile-tags">
         <span class="profile-tag age-tag">{{userAge}} years</span>
-        <span class="profile-tag stage-tag">{{currentStage}}</span>
-        <span class="profile-tag investment-tag">{{investmentLevel}}</span>
       </div>
     </div>
     
@@ -78,6 +76,53 @@
             </svg>
           </div>
           <div class="stat-value" *ngIf="stat.value">{{stat.value}}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage Progress Section -->
+    <div class="stage-progress-section">
+      <div class="progress-indicator">
+        <span class="progress-text">{{completedSteps}}/{{totalSteps}}</span>
+        <div class="current-stage">Stage {{getCurrentStage()}}: {{getCurrentStageName()}}</div>
+      </div>
+      <div class="status-badge">{{getStatusText()}}</div>
+      
+      <h2 class="section-title">Continue your investment journey!</h2>
+      <p class="section-description">
+        Complete your investor profile to unlock personalized wealth opportunities.
+      </p>
+
+      <div class="progress-actions">
+        <button class="continue-btn" (click)="continueOnboarding()">
+          Continue Setup
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9,18 15,12 9,6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Premium Card Recommendation -->
+    <div class="card-recommendation-section">
+      <div class="card-recommendation-content">
+        <div class="card-recommendation-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+        </div>
+        <div class="card-recommendation-text">
+          <h3 class="card-recommendation-title">Premium Card Recommendation</h3>
+          <p class="card-recommendation-description">Get personalized credit card recommendations based on your spending patterns</p>
+        </div>
+        <div class="card-recommendation-actions">
+          <button class="explore-benefits-btn" (click)="onExploreBenefitsClick()">
+            Explore Benefits
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
