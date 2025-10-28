@@ -68,7 +68,7 @@ export class SignupComponent implements OnInit {
   steps: SignupStep[] = [
     {
       id: 1,
-      title: 'Choose Account',
+      title: 'Choose',
       description: 'Select the account that best fits your banking needs',
       icon: '🏦',
       status: 'current',
@@ -81,7 +81,7 @@ export class SignupComponent implements OnInit {
     },
     {
       id: 2,
-      title: 'Prepare Docs',
+      title: 'Prepare',
       description: 'Gather all necessary documents for your application',
       icon: '📄',
       status: 'pending',
@@ -94,7 +94,7 @@ export class SignupComponent implements OnInit {
     },
     {
       id: 3,
-      title: 'Submit App',
+      title: 'Submit',
       description: 'Complete and submit your account opening application',
       icon: '📝',
       status: 'pending',
@@ -211,6 +211,9 @@ export class SignupComponent implements OnInit {
       if (this.currentStep === 5 && this.applicationReference === '') {
         this.generateApplicationReference();
       }
+      
+      // Scroll to top after each step
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
@@ -218,6 +221,9 @@ export class SignupComponent implements OnInit {
     if (this.currentStep > 1) {
       this.currentStep--;
       this.updateStepsStatus();
+      
+      // Scroll to top when going back
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
