@@ -50,6 +50,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onLogoClick() {
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard']).then(() => {
+      // Scroll to top after navigation
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 }

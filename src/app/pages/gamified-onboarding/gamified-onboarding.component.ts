@@ -279,7 +279,10 @@ export class GamifiedOnboardingComponent implements OnInit, OnDestroy {
         this.router.navigate(['/screener']);
         break;
       case 'Learning':
-        this.router.navigate(['/academy']);
+        this.router.navigate(['/academy']).then(() => {
+          // Scroll to top after navigation
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
         break;
       case 'Planning':
         this.router.navigate(['/complete-forms']);

@@ -472,6 +472,9 @@ export class ChatbotComponent implements AfterViewChecked {
   }
 
   goBack() {
-    this.router.navigate(['/academy']);
+    this.router.navigate(['/academy']).then(() => {
+      // Scroll to top after navigation
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 }

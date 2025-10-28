@@ -152,16 +152,25 @@ export class CitiHomeComponent implements OnInit {
 
   onQuickActionClick(action: QuickAction) {
     if (action.route) {
-      this.router.navigate([action.route]);
+      this.router.navigate([action.route]).then(() => {
+        // Scroll to top after navigation
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     }
   }
 
   onLoginClick() {
     // Navigate to dashboard
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard']).then(() => {
+      // Scroll to top after navigation
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   onLogoClick() {
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard']).then(() => {
+      // Scroll to top after navigation
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 }

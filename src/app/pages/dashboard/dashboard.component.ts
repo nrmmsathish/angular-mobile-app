@@ -133,11 +133,17 @@ export class DashboardComponent {
 
   onBottomNavClick(item: any) {
     if (item.route) {
-      this.router.navigate([item.route]);
+      this.router.navigate([item.route]).then(() => {
+        // Scroll to top after navigation
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     }
   }
 
   goToAcademy() {
-    this.router.navigate(['/academy']);
+    this.router.navigate(['/academy']).then(() => {
+      // Scroll to top after navigation
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 }
