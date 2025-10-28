@@ -19,6 +19,9 @@ interface AccountStat {
 })
 export class DashboardComponent {
   userName = 'Richard Lim';
+  userAge = 55;
+  investmentLevel = 'Getting Started';
+  currentStage = 'Stage 3';
   
   accountStats: AccountStat[] = [
     { 

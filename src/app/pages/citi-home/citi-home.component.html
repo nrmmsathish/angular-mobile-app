@@ -1,41 +1,11 @@
 <div class="citi-home">
-  <!-- Header -->
-  <div class="header">
-    <div class="status-bar">
-      <span class="time">8:17</span>
-      <div class="status-icons">
-        <span class="signal">●●●●</span>
-        <span class="network">5G</span>
-        <div class="battery">
-          <div class="battery-level"></div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="app-header">
-      <div class="logo">
-        <img src="assets/images/citi-logo.png" alt="Citi" class="citi-logo" (click)="onLogoClick()">
-      </div>
-      
-      <div class="header-icons">
-        <div class="icon-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-          </svg>
-        </div>
-        <div class="icon-btn language">EN</div>
-        <div class="icon-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/>
-            <path d="M21 21l-4.35-4.35"/>
-          </svg>
-        </div>
-        <div class="icon-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
-          </svg>
-        </div>
-      </div>
+  <!-- Professional Hero Background -->
+  <div class="hero-background">
+    <div class="hero-overlay"></div>
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
     </div>
   </div>
 
@@ -53,43 +23,160 @@
   <!-- Content Area -->
   <div class="content">
     <div class="offers-container">
-      <!-- Top Row: Gourmet Pleasures (left) + Million Dollar Giveaway (right) -->
+      <!-- Premium Gourmet Card -->
       <div class="offer-card gourmet-card" (click)="onOfferClick(offers[0])">
+        <div class="card-background">
+          <div class="card-pattern"></div>
+        </div>
         <div class="offer-content">
+          <div class="offer-badge">PREMIUM</div>
           <h2 class="offer-title">Citi Gourmet Pleasures</h2>
           <p class="offer-description">Enjoy up to 50% off dining deals with Citi Cards. T&Cs apply.</p>
-          <button class="offer-btn">Learn More</button>
+          <button class="offer-btn">
+            <span>Learn More</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
         </div>
-        <div class="offer-visual">🍽️</div>
+        <div class="offer-visual">
+          <div class="visual-icon">🍽️</div>
+          <div class="sparkle sparkle-1">✨</div>
+          <div class="sparkle sparkle-2">✨</div>
+        </div>
       </div>
 
+      <!-- Million Dollar Giveaway Card -->
       <div class="offer-card million-card" (click)="onOfferClick(offers[1])">
+        <div class="card-background">
+          <div class="money-pattern">
+            <div class="money-symbol">$</div>
+            <div class="money-symbol">$</div>
+            <div class="money-symbol">$</div>
+          </div>
+        </div>
         <div class="offer-content">
+          <div class="offer-badge gold">EXCLUSIVE</div>
           <h3 class="offer-title">Citi Mastercard</h3>
           <p class="offer-subtitle">Million Dollar Giveaway</p>
-          <button class="offer-btn">Find out more</button>
+          <button class="offer-btn">
+            <span>Find out more</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
         </div>
       </div>
 
-      <!-- Second Row: Building Portfolio (left) + Be Informed Investor (right) -->
+      <!-- Portfolio Building Card -->
       <div class="offer-card wealth-card portfolio-card" (click)="onOfferClick(offers[2])">
+        <div class="card-background">
+          <div class="chart-pattern">
+            <div class="chart-bar chart-bar-1"></div>
+            <div class="chart-bar chart-bar-2"></div>
+            <div class="chart-bar chart-bar-3"></div>
+            <div class="chart-bar chart-bar-4"></div>
+          </div>
+        </div>
         <div class="wealth-category">WEALTH INSIGHTS</div>
         <h3 class="offer-title">Building a diversified portfolio</h3>
-        <div class="chart-visual">📊</div>
+        <div class="progress-indicator">
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <span class="progress-text">Learn More</span>
+        </div>
       </div>
 
+      <!-- Informed Investor Card -->
       <div class="offer-card wealth-card investor-card" (click)="onOfferClick(offers[3])">
+        <div class="card-background">
+          <div class="trend-pattern">
+            <div class="trend-line"></div>
+            <div class="trend-dots">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+        </div>
         <div class="wealth-category">WEALTH INSIGHTS</div>
         <h3 class="offer-title">Be an informed investor</h3>
-        <div class="business-visual">💼</div>
+        <div class="market-indicator">
+          <div class="indicator-value">+12.5%</div>
+          <div class="indicator-label">Market Trend</div>
+        </div>
       </div>
 
-      <!-- Third Row: Loan Options (full width) -->
+      <!-- Loan Options Card -->
       <div class="offer-card loan-card" (click)="onOfferClick(offers[4])">
+        <div class="card-background">
+          <div class="loan-pattern">
+            <div class="building-icon">🏢</div>
+            <div class="percentage">%</div>
+          </div>
+        </div>
         <div class="offer-content">
-          <h3 class="offer-title">Exploring loan options - things to know</h3>
-          <p class="offer-description">There may be situations where taking on a loan could...</p>
-          <button class="offer-btn">Read more</button>
+          <div class="offer-badge blue">FINANCIAL</div>
+          <h3 class="offer-title">Exploring loan options</h3>
+          <p class="offer-description">There may be situations where taking on a loan could help you achieve your goals.</p>
+          <button class="offer-btn">
+            <span>Read more</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Citi Private Pass Travel Card -->
+      <div class="offer-card travel-card" (click)="onOfferClick(offers[5])">
+        <div class="card-background">
+          <div class="travel-pattern">
+            <div class="travel-icon">✈️</div>
+            <div class="destination-dots">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+        </div>
+        <div class="offer-content">
+          <div class="offer-badge gold">PREMIUM TRAVEL</div>
+          <h3 class="offer-title">Citi Private Pass</h3>
+          <p class="offer-description">Exclusive travel experiences and premium airport lounge access worldwide.</p>
+          <button class="offer-btn">
+            <span>Explore</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Wealth Management Card -->
+      <div class="offer-card wealth-management-card" (click)="onOfferClick(offers[6])">
+        <div class="card-background">
+          <div class="wealth-pattern">
+            <div class="wealth-icon">💎</div>
+            <div class="growth-chart">
+              <div class="growth-line"></div>
+              <div class="growth-point growth-point-1"></div>
+              <div class="growth-point growth-point-2"></div>
+              <div class="growth-point growth-point-3"></div>
+            </div>
+          </div>
+        </div>
+        <div class="offer-content">
+          <div class="offer-badge purple">WEALTH</div>
+          <h3 class="offer-title">Wealth Management</h3>
+          <p class="offer-description">Personalized investment strategies and financial planning for your future.</p>
+          <button class="offer-btn">
+            <span>Get Started</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -97,6 +184,8 @@
     <!-- Pagination dots -->
     <div class="pagination">
       <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
       <div class="dot"></div>
       <div class="dot"></div>
       <div class="dot"></div>

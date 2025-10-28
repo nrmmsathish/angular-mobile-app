@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { NavigationService } from '../../services/navigation.service';
 
 interface Offer {
   id: string;
@@ -26,9 +27,20 @@ interface QuickAction {
   templateUrl: './citi-home.component.html',
   styleUrls: ['./citi-home.component.scss']
 })
-export class CitiHomeComponent {
+export class CitiHomeComponent implements OnInit {
   activeTab = 'All';
   tabs = ['All', 'Offers', 'Wealth Insights'];
+
+  constructor(private router: Router, private navigationService: NavigationService) {}
+
+  ngOnInit() {
+    // Set page name for header
+    this.navigationService.setCurrentPage('Login');
+    
+    // Clear any header hiding states when entering citi-home
+    localStorage.removeItem('academyMode');
+    localStorage.removeItem('hideHeader');
+  }
 
   offers: Offer[] = [
     {
@@ -70,6 +82,22 @@ export class CitiHomeComponent {
       image: 'loan-options.jpg',
       buttonText: 'Read more',
       category: 'Wealth Insights'
+    },
+    {
+      id: '6',
+      title: 'Citi Private Pass',
+      description: 'Exclusive travel experiences and premium airport lounge access worldwide.',
+      image: 'travel-private-pass.jpg',
+      buttonText: 'Explore',
+      category: 'Offers'
+    },
+    {
+      id: '7',
+      title: 'Wealth Management',
+      description: 'Personalized investment strategies and financial planning for your future.',
+      image: 'wealth-management.jpg',
+      buttonText: 'Get Started',
+      category: 'Wealth Insights'
     }
   ];
 
@@ -104,7 +132,7 @@ export class CitiHomeComponent {
     }
   ];
 
-  constructor(private router: Router) {}
+  
 
   setActiveTab(tab: string) {
     this.activeTab = tab;

@@ -472,6 +472,6 @@ export class ChatbotComponent implements AfterViewChecked {
   }
 
   goBack() {
-    this.router.navigate(['/discover']);
+    this.router.navigate(['/academy']);
   }
 }

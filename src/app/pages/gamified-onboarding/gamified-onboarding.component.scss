@@ -434,7 +434,7 @@
     
     .task-icon {
       animation: sparkle 2s ease-in-out infinite;
-      color: var(--text-inverse);
+      color: white;
     }
   }
   
@@ -483,7 +483,8 @@
     margin: 0 0 8px 0;
     opacity: 1;
     line-height: 1.4;
-    color: #2d3748;
+    color: white;
+    
   }
   
   .task-meta {
@@ -498,7 +499,7 @@
   .task-category {
     font-size: 12px;
     background: #dbeafe;
-    color: #1e40af;
+    
     padding: 4px 8px;
     border-radius: 6px;
     display: inline-block;
@@ -510,7 +511,7 @@
     align-items: center;
     gap: 4px;
     font-size: 12px;
-    color: #6b7280;
+    
     background: #f3f4f6;
     padding: 4px 8px;
     border-radius: 6px;
@@ -518,12 +519,12 @@
 
     .time-icon {
       font-size: 12px;
-      opacity: 0.8;
+      
     }
 
     .time-value {
       font-weight: 500;
-      color: #4b5563;
+      
     }
   }
 }
@@ -545,7 +546,7 @@
     .points-value {
       font-size: 14px;
       font-weight: 600;
-      color: var(--text-secondary);
+      
     }
   }
   

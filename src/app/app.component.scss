@@ -10,7 +10,7 @@
 .main-content {
     flex: 1;
     overflow-y: auto;
-    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); /* Safe area for mobile devices */
+    
     
     /* Full screen mode for Citi home page */
     &.full-screen {
