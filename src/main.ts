@@ -1,5 +1,5 @@
 import { bootstrapApplication } from "@angular/platform-browser";
-import { provideRouter, Routes } from "@angular/router";
+import { provideRouter, Routes, withHashLocation } from "@angular/router";
 import { AppComponent } from "./app/app.component";
 import { AcademyComponent } from "./app/pages/academy/academy";
 import { DiscoverComponent } from "./app/pages/discover/discover.component";
@@ -46,5 +46,5 @@ const routes: Routes = [
 ];
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)],
+  providers: [provideRouter(routes, withHashLocation())],
 }).catch((err) => console.error(err));
